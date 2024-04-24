@@ -1,62 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/img/logo.png";
 
 const Header = () => {
     return (
         <header id="header" className="fixed-top d-flex align-items-center">
             <div className="container d-flex align-items-center">
-                <img
-                    src=""
-                    style={{ width: "45px", paddingBottom: "6px" }}
-                />
-                <a href="inicio.html" className="logo me-auto">
-                    <img src="" />
-                </a>
+
+                <NavLink to="/" className="logo me-auto">
+                    <img src={logo} alt="logo" />
+                </NavLink>
+
                 <nav id="navbar" className="navbar order-last order-lg-0">
                     <ul>
                         <li>
-                            <a
-                                className="nav-link scrollto active"
-                                href=""
-                            >
+                            <NavLink to="/" className="nav-link scrollto active">
                                 Inicio
-                            </a>
+                            </NavLink>
                         </li>
                         <li>
                             <a className="nav-link scrollto" href="#acerca-de">
-                                Acerca de
+                                Acerca de Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a className="nav-link scrollto" href="#requisitos">
+                                Requisitos para adoptar
                             </a>
                         </li>
                         <li className="dropdown">
-                            <a className="nav-link scrollto" href="#adopcion">
-                                <span>Adopción y cuidado</span>
+                            <a className="nav-link scrollto">
+                                <span>Animales en adopcion</span>
                                 <i className="bi bi-chevron-down"></i>
                             </a>
                             <ul>
                                 <li>
-                                    <a
+                                    <NavLink
+                                        to="/perros"
                                         className="nav-link scrollto"
-                                        href="#contribuir"
                                     >
-                                        ¿Cómo contribuir?
-                                    </a>
+                                        Perros en adopcion
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <a
+                                    <NavLink
+                                        to="/gatos"
                                         className="nav-link scrollto"
-                                        href="#requisitos"
                                     >
-                                        Requisitos para adoptar
-                                    </a>
+                                        Gatos en adopcion
+                                    </NavLink>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="perros-en-adopcion.php">
-                                Perros en adopción
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">Contacto</a>
+                            <NavLink to="/contacto">Contacto</NavLink>
                         </li>
                     </ul>
                     <i className="bi bi-list mobile-nav-toggle"></i>
