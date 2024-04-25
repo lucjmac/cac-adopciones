@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 // import logo from "../../assets/img/";
 
 const Header = () => {
@@ -19,14 +19,14 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <a className="nav-link scrollto" href="#acerca-de">
+                            <Link to = "#acerca-de" className="nav-link scrollto">
                                 Acerca de Nosotros
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link scrollto" href="#requisitos">
+                            <Link to = "#requisitos" className="nav-link scrollto">
                                 Requisitos para adoptar
-                            </a>
+                            </Link>
                         </li>
                         <li className="dropdown">
                             <a className="nav-link scrollto">
