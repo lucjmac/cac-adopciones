@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 import Header from "./components/global/Header";
 
-export const App = () => {
+const App = () => {
     return (
         <>
             <BrowserRouter>
                 <Header />
 
-                <Routes>
+                {/* <Routes>
                     <Route path="/" element={<Inicio />}></Route>
                     <Route path="/perros" element={<Perros />}></Route>
                     <Route path="/gatos" element={<Gatos />}></Route>
@@ -28,8 +28,10 @@ export const App = () => {
                     ></Route>
                 </Routes>
 
-                <Footer />
+                <Footer /> */}
             </BrowserRouter>
         </>
     );
 };
+
+export default App;

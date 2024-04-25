@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/img/logo.png";
+// import logo from "../../assets/img/";
 
-export const Header = () => {
+const Header = () => {
     return (
         <header id="header" className="fixed-top d-flex align-items-center">
             <div className="container d-flex align-items-center">
 
                 <NavLink to="/" className="logo me-auto">
-                    <img src={logo} alt="logo" />
+                    <img src={""} alt="logo" />
                 </NavLink>
 
                 <nav id="navbar" className="navbar order-last order-lg-0">
@@ -63,4 +63,5 @@ export const Header = () => {
     );
 };
 
+export default Header;
 
