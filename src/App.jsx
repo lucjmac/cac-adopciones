@@ -1,17 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Header from "./Components/Global/Header";
+import Header from "./components/global/Header";
 
-import Header from "./assets/Components/Global/Header";
-
-function App() {
+export const App =() => {
     return (
         <>
             <Header />
 
             <Routes>
-                <Route path="/" element={<Home />}></Route>
+                <Route path="/" element={<Inicio />}></Route>
                 <Route path="/perros" element={<Perros />}></Route>
                 <Route path="/gatos" element={<Gatos />}></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
@@ -24,4 +21,4 @@ function App() {
     );
 }
 
-export default App;
+

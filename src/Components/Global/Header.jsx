@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 
-const Header = () => {
+export const Header = () => {
     return (
         <header id="header" className="fixed-top d-flex align-items-center">
             <div className="container d-flex align-items-center">
@@ -63,4 +63,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+
