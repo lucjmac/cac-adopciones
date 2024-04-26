@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
 import Header from "./Components/Global/Header";
-import Footer from "./Components/Global/Footer";
+import Footer from "./Components/Global/Footer/Footer";
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
+import Animales from "./pages/Animales";
 import Perros from "./pages/Perros";
 import Gatos from "./pages/Gatos";
 import DetallePerro from "./pages/DetallePerro";
@@ -19,6 +20,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Inicio />}></Route>
+          <Route path="/animales" element={<Animales />}></Route>
           <Route path="/perros" element={<Perros />}></Route>
           <Route path="/gatos" element={<Gatos />}></Route>
           <Route path="/contacto" element={<Contacto />}></Route>
