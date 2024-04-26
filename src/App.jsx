@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from "./Components/Global/Header";
+import Footer from "./Components/Global/Footer";
+import Inicio from "./pages/Inicio";
+import Contacto from "./pages/Contacto";
+import Perros from "./pages/Perros";
+import Gatos from "./pages/Gatos";
+import DetallePerro from "./pages/DetallePerro";
+import DetalleGato from "./pages/DetalleGato";
+import Error404 from "./pages/Error404";
 
+const App = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <BrowserRouter>
+        <Header />
 
-export default App
+        <Routes>
+          <Route path="/" element={<Inicio />}></Route>
+          <Route path="/perros" element={<Perros />}></Route>
+          <Route path="/gatos" element={<Gatos />}></Route>
+          <Route path="/contacto" element={<Contacto />}></Route>
+          <Route path="/perros/detalle" element={<DetallePerro />}></Route>
+          <Route path="/gatos/detalle" element={<DetalleGato />}></Route>
+          <Route path="/error404" element={<Error404 />}></Route>
+          <Route path="/*" element={<Navigate to="/error404" />}></Route>
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
+    </>
+  );
+};
+
+export default App;
