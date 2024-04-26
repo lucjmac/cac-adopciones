@@ -1,6 +1,6 @@
 footer {
-  color: #fff;
-  background-color: #111111;
+  color: var(--colorWhite);
+  background-color: var(--bgDarkGrey);
 }
 
 .detail-wrapper {
@@ -15,7 +15,7 @@ footer {
 }
 
 .logo span {
-  color: #2d6b2b;
+  color: var(--colorGreen);
 }
 
 p,
@@ -37,7 +37,7 @@ a {
 }
 
 .nav-list a:hover {
-  color: #fff;
+  color: var(--colorWhite);
 }
 
 .nav-list a span {
@@ -48,7 +48,7 @@ a {
 }
 
 .copyright {
-  background-color: #000;
+  background-color: var(--colorBlack);
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -72,7 +72,7 @@ a {
 }
 
 .social-list li:hover {
-  color: #2d6b2b;
+  color: var(--colorGreen);
 }
 
 @media screen and (min-width: 1024px) {

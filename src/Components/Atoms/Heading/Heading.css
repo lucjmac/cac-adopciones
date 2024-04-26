@@ -12,7 +12,7 @@
   display: inline-block;
   height: 2px;
   width: 80%;
-  background-color: #2d6b2b;
+  background-color: var(--colorGreen);
 }
 
 h4 {
