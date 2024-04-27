@@ -1,4 +1,3 @@
-// import { IoIosCheckbox, IoCheckboxOutline } from "react-icons/io";
 import { FaCheckSquare, FaRegCheckSquare } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import "./RequirementCard.css";
@@ -8,7 +7,6 @@ const RequirementCard = ({ item }) => {
 
   const className = full ? "is-full requirement-item" : "requirement-item";
 
-  // <IoIosCheckbox /> <IoCheckboxOutline />
   return (
     <li className={className}>
       <div className="icon">

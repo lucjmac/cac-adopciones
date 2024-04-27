@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import requirements from "./requirements.data";
 import Heading from "../../Atoms/Heading/Heading";
 import RequirementCard from "../../Molecules/RequirementCard/RequirementCard";
