@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/*" element={<Navigate to="/error404" />}></Route>
         </Routes>
 
-        <Footer />
+      <Footer />
       </BrowserRouter>
     </>
   );

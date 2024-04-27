@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-// import logo from "../../assets/img/";
+import logo from "../../img/logoHuellitasCirculo.png";
 
 const Header = () => {
     return (
