@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
-import Header from "./components/global/Header";
-import Footer from "./components/global/Footer";
+import Header from "./Components/Global/Header";
+import Footer from "./Components/Global/Footer/Footer";
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
 import Animales from "./pages/Animales";
