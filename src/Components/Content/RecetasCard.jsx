@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Footer = () => {
+const RecetasCard = () => {
     return (
         <>
-            <h1>Footer</h1>
+            <h2>RecetasCard</h2>
         </>
+    );
+};
 
-    )
-}
-
-export default Footer
+export default RecetasCard
