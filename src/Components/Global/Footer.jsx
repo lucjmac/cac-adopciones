@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Nosotros = () => {
-
+const Footer = () => {
     return (
-        <h2>Acerca de Nosotros</h2>
+        <>
+            <h1>Footer</h1>
+        </>
+
     )
 }
 
-export default Nosotros
+export default Footer

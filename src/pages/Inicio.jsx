@@ -1,11 +1,11 @@
-import Nosotros from "../Components/Content/Nosotros";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import RecetasGrid from "../Components/Content/RecetasGrid";
 
 const Inicio = () => {
   return (
     <>
-      <h2>Inicio</h2>
-
-      <Nosotros />
+      <RecetasGrid />
     </>
   );
 };

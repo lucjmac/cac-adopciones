@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const DetallePerro = () => {
-    return (
-        <h3>Detalle Perro</h3>
-    )
-}
+const Search = () => {
 
-export default DetallePerro
+    return (
+        <>
+            <h2>Search</h2>
+        </>
+    )
+};
+
+export default Search
