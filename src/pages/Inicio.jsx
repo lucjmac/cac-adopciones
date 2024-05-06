@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import Nosotros from "../Components/Content/Nosotros";
-import Requisitos from "../Components/Content/Requisitos";
+import Nosotros from "../components/content/Nosotros";
+import Requisitos from "../components/content/Requisitos";
 
 const Inicio = () => {
   return (
