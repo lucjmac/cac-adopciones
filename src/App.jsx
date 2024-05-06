@@ -8,7 +8,6 @@ import Footer from "./Components/Global/Footer";
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
 import Error404 from "./pages/Error404";
-import RecetasGrid from "./Components/Content/RecetasGrid";
 
 const App = () => {
   return (

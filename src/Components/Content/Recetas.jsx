@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Contacto = () => {
+const Recetas = () => {
     return (
         <>
-            <h2>Contacto</h2>
+            <h2>Recetas</h2>
         </>
     );
 };
 
-export default Contacto;
+export default Recetas; 
