@@ -7,6 +7,7 @@ import Aside from "./Components/Global/Aside";
 import Footer from "./Components/Global/Footer";
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
+import Recetas from "./pages/Recetas";
 import Error404 from "./pages/Error404";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Inicio />}></Route>
           <Route path="/contacto" element={<Contacto />}></Route>
+          <Route path="/recetas" element={<Recetas />}></Route>
           <Route path="/error404" element={<Error404 />}></Route>
           <Route path="/*" element={<Navigate to="/error404" />}></Route>
         </Routes>
