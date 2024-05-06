@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Nosotros = () => {
+export const Aside = () => {
 
     return (
-        <h2>Acerca de Nosotros</h2>
+        <h2>Aside</h2>
     )
 }
 
-export default Nosotros
