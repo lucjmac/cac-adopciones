@@ -1,4 +1,5 @@
-const RecetasCard = ({recetasMap}) => {
+
+const SliderCard = ({recetasMap}) => {
     const imgURL = recetasMap.strMealThumb;
     return (
         <>
@@ -10,4 +11,5 @@ const RecetasCard = ({recetasMap}) => {
     );
 };
 
-export default RecetasCard;
+export default SliderCard;
+

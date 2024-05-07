@@ -2,7 +2,10 @@ import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
 import RecetasCard from "../RecetasCard";
 
+import "../../../variables.css";
+import "../../../index.css"; 
 import "./RecetasGrid.css";
+
 
 const RecetasGrid = () => {
     const [recetas, setRecetas] = useState([]);
@@ -17,7 +20,7 @@ const RecetasGrid = () => {
         <>
             <ul className="recetasGrid">
                 {recetas.map((receta) => (
-                    <RecetasCard key={receta.idMeal} recetasmap={receta} />
+                    <RecetasCard key={receta.idMeal} recetasMap={receta} />
                 ))}
             </ul>
         </>
@@ -25,3 +28,4 @@ const RecetasGrid = () => {
 };
 
 export default RecetasGrid;
+

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
 import Header from "./Components/Global/Header/Header";
