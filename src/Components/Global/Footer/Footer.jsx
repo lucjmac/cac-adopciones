@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
@@ -31,7 +31,6 @@ const Footer = () => {
             value={searchTerm}
             onChange={handleChange}
           />
-          {/* <input type="submit" value="Search" /> */}
         </form>
         <div className="footer-social-nav footer-anchors">
           <ul>
@@ -62,6 +61,9 @@ const Footer = () => {
         <nav className="footer-menus footer-anchors  footer-internal-nav">
           <h3>elGourmet</h3>
           <ul>
+            <li>
+              <NavLink to="/contacto">Contacto</NavLink>
+            </li>
             <li>
               <a href="/">Chefs</a>
             </li>
