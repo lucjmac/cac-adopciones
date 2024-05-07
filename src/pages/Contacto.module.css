@@ -1,0 +1,67 @@
+.contacto_container {
+    max-width: 850px;
+    margin-right: auto; 
+    margin-left: 0;
+    padding: 16px 0px;
+
+}
+
+.contacto_container h2 {
+  display: inline;
+  padding: 20px;
+  font-size: 23px;
+}
+
+.linea{
+  border-bottom: 3px solid #263a30; 
+}
+.contacto_section {
+
+    background-color: #ffffff;
+    padding: 6px 15px 2px;
+    border-radius: 5px;
+
+}
+.contacto_form {
+    margin-top: 20px;
+}
+
+.form_group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+input[type="email"],
+input[type="text"],
+
+textarea {
+    width:  calc(100% - 22px);
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #457b66;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #99c2a0;
+}
