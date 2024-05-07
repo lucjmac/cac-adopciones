@@ -1,15 +1,25 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import get from "../../utils/conexionAPI";
+import { useState, useEffect } from "react";
 import RecetasCard from "./RecetasCard";
 
 const RecetasGrid = () => {
+    const [recetas, setRecetas] = useState([]);
+
+    useEffect(() => {
+        get("/search.php?s=").then((data) => {
+            setRecetas(data.meals);
+        });
+    }, []);
+
     return (
         <>
-            <h2>RecetasGrid</h2>
-            <RecetasCard />
+            <ul className="recetasGrid">
+                {recetas.map((receta) => (
+                    <RecetasCard key={receta.idMeal} recetasmap={receta} />
+                ))}
+            </ul>
         </>
     );
 };
 
-export default RecetasGrid
+export default RecetasGrid;
