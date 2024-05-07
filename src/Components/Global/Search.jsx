@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Nosotros = () => {
+const Search = () => {
 
     return (
-        <h2>Acerca de Nosotros</h2>
+        <>
+            <h2>Search</h2>
+        </>
     )
-}
+};
 
-export default Nosotros
+export default Search
