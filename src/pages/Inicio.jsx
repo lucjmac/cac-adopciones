@@ -1,7 +1,8 @@
-import RecetasGrid from "../Components/Content/RecetasGrid/RecetasGrid";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-import "../variables.css";
-import "../index.css";
+/*import Nosotros from "../components/content/Nosotros";
+import Requisitos from "../components/content/Requisitos";*/
 
 const Inicio = () => {
   return (
