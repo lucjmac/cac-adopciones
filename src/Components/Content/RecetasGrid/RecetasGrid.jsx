@@ -1,6 +1,8 @@
-import get from "../../utils/conexionAPI";
+import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
-import RecetasCard from "./RecetasCard";
+import RecetasCard from "../RecetasCard";
+
+import "./RecetasGrid.css";
 
 const RecetasGrid = () => {
     const [recetas, setRecetas] = useState([]);
