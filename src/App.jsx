@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
 import Header from "./Components/Global/Header";
-import Search from "./Components/Global/Search";
 import Aside from "./Components/Global/Aside";
 import Footer from "./Components/Global/Footer";
 import Inicio from "./pages/Inicio";
