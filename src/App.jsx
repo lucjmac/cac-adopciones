@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, Link } from "react-router-dom";
 
 import Header from "./Components/Global/Header/Header";
+import Search from "./Components/Search/Search";
 import Aside from "./Components/Global/Aside";
 import Footer from "./Components/Global/Footer";
 import Inicio from "./pages/Inicio";
@@ -14,7 +15,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Header />
-        <Aside />
+
         <Routes>
           <Route path="/" element={<Inicio />}></Route>
           <Route path="/contacto" element={<Contacto />}></Route>
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/*" element={<Navigate to="/error404" />}></Route>
         </Routes>
 
-        <Footer />
+      <Footer />
       </BrowserRouter>
     </>
   );
