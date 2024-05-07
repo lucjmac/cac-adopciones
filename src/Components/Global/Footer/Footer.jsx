@@ -1,18 +1,38 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 import "./Footer.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+  };
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <footer>
       <div className="footer-col">
-        <div className="footer-search">
+        <form className="footer-search" onSubmit={handleSubmit}>
           <div className="icon">
             <CiSearch />
           </div>
-          <input type="text" placeholder="Buscador" />
-        </div>
+          <input
+            type="text"
+            placeholder="Buscador"
+            required
+            value={searchTerm}
+            onChange={handleChange}
+          />
+          {/* <input type="submit" value="Search" /> */}
+        </form>
         <div className="footer-social-nav footer-anchors">
           <ul>
             <li>
