@@ -1,12 +1,16 @@
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { useState, useEffect } from "react";
-import Glide from "@glidejs/react";
 import SliderCard from "./SliderCard";
+import get from "../../utils/conexionAPI.js";
 
-import "../../../variables.css";
-import "../../../index.css";
-import "../RecetasGrid.css";
+import "../../../src/variables.css";
+import "../../../src/index.css"; 
 
-const RecetasGrid = () => {
+
+const SliderGrid = () => {
     const [recetas, setRecetas] = useState([]);
 
     useEffect(() => {
@@ -15,24 +19,21 @@ const RecetasGrid = () => {
         });
     }, []);
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1
+    };
+
     return (
-        <>
-            <div className="recetasGrid">
-                <Glide>
-                    <div className="glide__track" data-glide-el="track">
-                        <ul className="glide__slides">
-                            {recetas.map((receta) => (
-                                <SliderCard
-                                    key={receta.idMeal}
-                                    recetasMap={receta}
-                                />
-                            ))}
-                        </ul>
-                    </div>
-                </Glide>
-            </div>
-        </>
+        <Slider {...settings}>
+            {recetas.map((receta) => (
+                <SliderCard key={receta.idMeal} recetasMap={receta} />
+            ))}
+        </Slider>
     );
 };
 
-export default RecetasGrid;
+export default SliderGrid;

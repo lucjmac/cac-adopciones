@@ -1,13 +1,39 @@
-const RecetasCard = ({recetasMap}) => {
-    const imgURL = recetasMap.strMealThumb;
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { useState, useEffect } from "react";
+import SliderCard from "../Slider/SliderCard";
+import get from "../../utils/conexionAPI.js";
+
+// import "../../../variables.css";
+// import "../../../index.css"; 
+// import "./RecetasGrid.css";
+
+const SliderGrid = () => {
+    const [recetas, setRecetas] = useState([]);
+
+    useEffect(() => {
+        get("/search.php?s=").then((data) => {
+            setRecetas(data.meals);
+        });
+    }, []);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1
+    };
+
     return (
-        <>
-            <li className="recetasCard">
-                <img src={imgURL} alt={recetasMap.strMeal} />
-                <h3>{recetasMap.strMeal}</h3> 
-            </li>
-        </>
+        <Slider {...settings}>
+            {recetas.map((receta) => (
+                <SliderCard key={receta.idMeal} recetasMap={receta} />
+            ))}
+        </Slider>
     );
 };
 
-export default RecetasCard;
+export default SliderGrid;
