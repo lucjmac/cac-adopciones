@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import getSearchResults from "../../../utils/getSearchResults";
+import getResults from "../../../utils/getSearchResults";
 import SearchCard from "../../Molecules/SearchCard/SearchCard";
 import "./Search.css";
 
@@ -11,7 +11,7 @@ const Search = () => {
 
   useEffect(() => {
     if (searchTerm !== "") {
-      getSearchResults(searchTerm).then((results) =>
+      getResults(`filter.php?c=${searchTerm}`).then((results) =>
         setSearchResults(results.meals)
       );
     }

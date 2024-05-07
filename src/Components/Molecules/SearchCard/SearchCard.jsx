@@ -3,7 +3,7 @@ import "./SearchCard.css";
 
 const SearchCard = ({ item }) => {
   const { strMeal, strMealThumb, idMeal } = item;
-  const link = `receta/${idMeal}`;
+  const link = `/receta/${idMeal}`;
 
   return (
     <div className="search-item">
