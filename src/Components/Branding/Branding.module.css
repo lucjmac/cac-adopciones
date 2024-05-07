@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.titlelogo {
+  color: black;
+  line-height: 1;
+  margin: 0;
+}
