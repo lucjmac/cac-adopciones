@@ -5,3 +5,15 @@
   margin: 0;
   padding: 0;
 }
+
+.nav {
+  width: 100%;
+}
+
+.link {
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 22px;
+}
