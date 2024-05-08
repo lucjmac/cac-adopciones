@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import RecetasGrid from "../Components/Content/RecetasGrid";
+
+import RecetasGrid from "../Components/Content/RecetasGrid/RecetasGrid";
+import "../variables.css";
+import "../index.css";
 
 const Recetas = () => {
     return (
