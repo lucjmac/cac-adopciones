@@ -6,7 +6,9 @@ const Branding = () => {
       <picture>
         <img src="../../../assets/logo.svg" alt="Logo" height={100} />
       </picture>
-      <h1 className={styles.titlelogo}>Sabores del mundo</h1>
+      <h1 className={styles.title}>
+        <span className={styles.firstLine}>World</span>recipes
+      </h1>
     </div>
   );
 };
