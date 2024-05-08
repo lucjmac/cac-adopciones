@@ -3,12 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useState, useEffect } from "react";
-import SliderCard from "../Slider/SliderCard";
+import SliderCard from "./SliderCard";
 import get from "../../utils/conexionAPI.js";
 
-// import "../../../variables.css";
-// import "../../../index.css"; 
-// import "./RecetasGrid.css";
+import "../../../src/variables.css";
+import "../../../src/index.css"; 
+
 
 const SliderGrid = () => {
     const [recetas, setRecetas] = useState([]);
