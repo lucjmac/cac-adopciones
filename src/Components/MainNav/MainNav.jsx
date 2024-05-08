@@ -3,6 +3,7 @@ import MainNavItem from "./MainNavItem/MainNavItem";
 import Branding from "../Branding/Branding";
 import Search from "../Search/Search";
 import styles from "./MainNav.module.css";
+import SurpriseMe from "../Global/SurpriseMe/SurpriseMe";
 
 const MainNav = () => {
   return (
@@ -17,10 +18,12 @@ const MainNav = () => {
           <Search reversed={true} />
         </MainNavItem>
         <MainNavItem>
-          <NavLink to="/recetas/detalle">Surprise me</NavLink>
+          <SurpriseMe />
         </MainNavItem>
         <MainNavItem>
-          <NavLink to="/recetas">Recipes</NavLink>
+          <NavLink className={styles.link} to="/recetas">
+            Recipes
+          </NavLink>
         </MainNavItem>
       </ul>
     </nav>
