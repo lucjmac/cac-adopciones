@@ -1,38 +1,67 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
 import SliderCard from "./SliderCard";
 import get from "../../utils/conexionAPI.js";
 
-import "../../../src/variables.css";
-import "../../../src/index.css"; 
-
+import "./SliderGrid.css";
 
 const SliderGrid = () => {
-    const [recetas, setRecetas] = useState([]);
+    const [categorias, setCategorias] = useState([]);
 
     useEffect(() => {
-        get("/search.php?s=").then((data) => {
-            setRecetas(data.meals);
+        get("/categories.php").then((data) => {
+            setCategorias(data.categories);
         });
     }, []);
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 3,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (
-        <Slider {...settings}>
-            {recetas.map((receta) => (
-                <SliderCard key={receta.idMeal} recetasMap={receta} />
-            ))}
-        </Slider>
+        <>
+        <h2 className="sliderTitle">CATEGORIES</h2>
+            <Slider {...settings}>
+                {categorias.map((categoria) => (
+                    <SliderCard
+                        key={categoria.idCategory}
+                        categoriasMap={categoria}
+                    />
+                ))}
+            </Slider>
+        </>
     );
 };
 

@@ -1,0 +1,16 @@
+.slick-prev,
+.slick-prev:before {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+
+.slick-prev,
+.slick-next,
+.slick-prev:before,
+.slick-next:before {
+    z-index: 1;
+    color: var(--colorBgLightGreen);
+}
