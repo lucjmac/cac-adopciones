@@ -1,0 +1,14 @@
+.recipe-page-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 2rem auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .recipe-page-details-wrapper {
+    flex-direction: row;
+    max-width: 80%;
+  }
+}
