@@ -6,7 +6,7 @@ import styles from "./MainNav.module.css";
 
 const MainNav = () => {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.container}>
         <MainNavItem>
           <NavLink to="/">
@@ -14,13 +14,13 @@ const MainNav = () => {
           </NavLink>
         </MainNavItem>
         <MainNavItem>
-          <Search />
+          <Search reversed={true} />
         </MainNavItem>
         <MainNavItem>
-          <NavLink to="/recetas/detalle">Sorpréndeme</NavLink>
+          <NavLink to="/recetas/detalle">Surprise me</NavLink>
         </MainNavItem>
         <MainNavItem>
-          <NavLink to="/recetas">Recetas</NavLink>
+          <NavLink to="/recetas">Recipes</NavLink>
         </MainNavItem>
       </ul>
     </nav>
