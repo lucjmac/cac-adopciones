@@ -6,9 +6,6 @@ import { useState, useEffect } from "react";
 import SliderCard from "../Slider/SliderCard";
 import get from "../../utils/conexionAPI.js";
 
-// import "../../../variables.css";
-// import "../../../index.css"; 
-// import "./RecetasGrid.css";
 
 const SliderGrid = () => {
     const [recetas, setRecetas] = useState([]);

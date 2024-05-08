@@ -1,10 +1,44 @@
-.slick-prev,
-.slick-prev:before {
-    left: 10px;
+.sliderContainer {
+    margin: 40px 0 60px 0;
 }
 
-.slick-next {
-    right: 10px;
+.sliderTitle {
+    max-width: 1280px;
+    padding-left: 40px;
+    margin: 0 auto 20px auto;
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--colorGreen);
+}
+
+.sliderWrapper {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.sliderCard {
+    max-width: 280px;
+    flex-direction: column;
+}
+
+.slick-slide > div > div {
+    display: flex;
+    justify-content: center;
+}
+
+.sliderImg {
+    width: 280px;
+    height: 190px;
+}
+
+.SliderImgTitle {
+    background-color: var(--colorYellow);
+    flex-direction: row;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+    color: var(--colorGreen);
+    font-weight: 400;
 }
 
 .slick-prev,
@@ -12,5 +46,5 @@
 .slick-prev:before,
 .slick-next:before {
     z-index: 1;
-    color: var(--colorBgLightGreen);
+    color: var(--colorGreen);
 }
