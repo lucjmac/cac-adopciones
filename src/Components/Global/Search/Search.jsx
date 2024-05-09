@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import getResults from "../../../utils/getSearchResults";
 import SearchCard from "../../Molecules/SearchCard/SearchCard";
-import { IoChevronBack } from "react-icons/io5";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import styles from "./Search.module.css";
 
@@ -65,7 +64,7 @@ const Search = () => {
             }).map((_, index) => (
               <button
                 key={index}
-                className={styles.nextButton}
+                className={styles.pageButtons}
                 onClick={() => handleNumberPagination(index)}
               >
                 {index + 1}

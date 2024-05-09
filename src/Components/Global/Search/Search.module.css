@@ -22,9 +22,13 @@
 
 .pagination {
   display: flex;
-  gap: 5px;
+  gap: 7px;
   margin: 1rem auto 3rem;
   width: max-content;
+}
+
+.pageButtons {
+  margin: 0 0.2rem;
 }
 
 @media screen and (min-width: 1024px) {
