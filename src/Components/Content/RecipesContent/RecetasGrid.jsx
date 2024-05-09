@@ -6,20 +6,36 @@ import "./RecipesContent.css";
 
 const RecetasGrid = () => {
     const [recetas, setRecetas] = useState([]);
+    const [recetasDetalladas, setRecetasDetalladas] = useState([]);
 
     useEffect(() => {
-        get("/filter.php?i=").then((data) => {
-            setRecetas(data.meals);
-        });
+        const fetchData = async () => {
+            try {
+                const data = await get("/filter.php?i=");
+                setRecetas(data.meals);
+
+                const idsMeal = data.meals.map((receta) => receta.idMeal);
+                const detallesPromises = idsMeal.map((idMeal) => get(`/lookup.php?i=${idMeal}`));
+
+                const detalles = await Promise.all(detallesPromises);
+                console.log('Detalles:', detalles);
+                setRecetasDetalladas(detalles.flat());
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     return (
         <>
             <section className="recipesContent">
                 <ul className="recetasGrid">
-                    {recetas.map((receta) => (
-                        <RecetasCard key={receta.idMeal} recetasMap={receta} />
-                    ))}
+                    {recetas.map((receta) => {
+                        const recetaDetallada = recetasDetalladas.find((r) => r.idMeal === receta.idMeal);
+                        return <RecetasCard key={receta.idMeal} recetasMap={recetaDetallada || receta} />;
+                    })}
                 </ul>
             </section>
         </>
