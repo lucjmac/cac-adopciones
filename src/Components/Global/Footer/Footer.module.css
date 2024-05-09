@@ -9,25 +9,25 @@ footer {
   padding: 2rem;
 }
 
-.footer-col {
+.footerCol {
   width: 100%;
 }
 
-.footer-search {
+.footerSearch {
   position: relative;
   margin-bottom: 10px;
   background-color: var(--colorBgLightGreen);
   height: 50px;
 }
 
-.footer-search .icon {
+.footerSearch .icon {
   position: absolute;
   left: 5px;
   top: 10px;
   font-size: 30px;
 }
 
-.footer-search input {
+.footerSearch .searchInput {
   background: transparent;
   border: none;
   height: 100%;
@@ -36,30 +36,30 @@ footer {
   color: var(--colorWhite);
 }
 
-.footer-search input::placeholder {
+.footerSearch .searchInput::placeholder {
   color: var(--colorWhite);
 }
 
-.footer-social-nav ul {
+.footerSocialNav ul {
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 20px;
 }
 
-.footer-anchors a {
+.footerAnchors a {
   transition: color 0.5s ease;
 }
 
-.footer-anchors a:hover {
+.footerAnchors a:hover {
   color: var(--colorYellow);
 }
 
-.footer-menus a {
+.footerMenus a {
   font-size: 13px;
 }
 
-.footer-col-nav h3 {
+.footerColNav h3 {
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -68,8 +68,8 @@ footer {
   margin-bottom: 20px;
 }
 
-.footer-internal-nav ul li,
-.footer-company-nav ul li {
+.footerInternalNav ul li,
+.footerCompanyNav ul li {
   margin-bottom: 5px;
 }
 
@@ -80,20 +80,20 @@ footer {
     align-items: flex-start;
   }
 
-  .footer-col {
+  .footerCol {
     width: 30%;
   }
 
-  .footer-col-nav {
+  .footerColNav {
     display: flex;
     gap: 60px;
   }
 
-  .footer-col-nav h3 {
+  .footerColNav h3 {
     font-size: 15px;
   }
 
-  .footer-menus a {
+  .footerMenus a {
     font-size: 14px;
   }
 }

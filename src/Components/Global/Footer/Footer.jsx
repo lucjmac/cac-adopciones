@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
-import "./Footer.css";
+import styles from "./Footer.module.css";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -19,20 +19,21 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="footer-col">
-        <form className="footer-search" onSubmit={handleSubmit}>
-          <div className="icon">
+      <div className={styles.footerCol}>
+        <form className={styles.footerSearch} onSubmit={handleSubmit}>
+          <div className={styles.icon}>
             <CiSearch />
           </div>
           <input
+            className={styles.searchInput}
             type="text"
-            placeholder="Buscador"
+            placeholder="Search by main ingredient"
             required
             value={searchTerm}
             onChange={handleChange}
           />
         </form>
-        <div className="footer-social-nav footer-anchors">
+        <div className={`${styles.footerSocialNav} ${styles.footerAnchors}`}>
           <ul>
             <li>
               <a href="/">
@@ -57,32 +58,42 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="footer-col footer-col-nav">
-        <nav className="footer-menus footer-anchors  footer-internal-nav">
-          <h3>elGourmet</h3>
+      <div className={`${styles.footerCol} ${styles.footerColNav}`}>
+        <nav
+          className={` ${styles.footerMenus}
+            ${styles.footerAnchors}
+            ${styles.footerInternalNav}`}
+        >
+          <h3>World recepies</h3>
           <ul>
             <li>
-              <NavLink to="/contacto">Contacto</NavLink>
+              <NavLink to="/contacto">Contact</NavLink>
             </li>
             <li>
               <a href="/">Chefs</a>
             </li>
             <li>
-              <a href="/">Glosario</a>
+              <a href="/">Glossary</a>
             </li>
             <li>
-              <a href="/">Novedades</a>
+              <a href="/">News</a>
             </li>
           </ul>
         </nav>
-        <nav className="footer-menus footer-anchors footer-company-nav">
-          <h3>Compañia</h3>
+        <nav
+          className={`
+           ${styles.footerMenus}
+            ${styles.footerAnchors}
+            ${styles.footerCompanyNav}
+          `}
+        >
+          <h3>Company</h3>
           <ul>
             <li>
-              <a href="/">Politicas de privacidad</a>
+              <a href="/">Privacy policy</a>
             </li>
             <li>
-              <a href="/">Términos y condiciones</a>
+              <a href="/">Terms and conditions</a>
             </li>
           </ul>
         </nav>
