@@ -50,7 +50,7 @@ const Search = () => {
           <h3 className={styles.searchPageNoTitle}>No results found</h3>
         )}
       </ul>
-      {searchResults.length > MAX_ITEMS && (
+      {searchResults && searchResults.length > MAX_ITEMS && (
         <div className={styles.pagination}>
           <button
             disabled={currentIndex === 0}
