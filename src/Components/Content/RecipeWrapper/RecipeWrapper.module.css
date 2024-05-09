@@ -1,4 +1,4 @@
-.recipe-page-details-wrapper {
+.recipeDetailsWrapper {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .recipe-page-details-wrapper {
+  .recipeDetailsWrapper {
     flex-direction: row;
     max-width: 80%;
   }

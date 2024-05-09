@@ -1,16 +1,16 @@
-import "./IngredientsCard.css";
+import styles from "./IngredientsCard.module.css";
 
 const IngredientsCard = ({ ingredients, mealTitle }) => {
   return (
-    <div className="ingredients-card">
-      <div className="ingredients-card-header-wrapper">
+    <div className={styles.ingredientsCard}>
+      <div className={styles.ingredientsHeaderWrapper}>
         <h3>Ingredients</h3>
       </div>
-      <h4 className="ingredients-card-title">{mealTitle}</h4>
-      <ul className="ingredients-card-list">
+      <h4 className={styles.ingredientsCardTitle}>{mealTitle}</h4>
+      <ul className={styles.ingredientsCardList}>
         {ingredients.map((item, index) => (
-          <li key={index} className="ingredients-card-item">
-            <p className="ingredient">{item.ingredient}</p>
+          <li key={index} className={styles.ingredientsCardItem}>
+            <p className={styles.ingredient}>{item.ingredient}</p>
             <p>{item.quantity}</p>
           </li>
         ))}

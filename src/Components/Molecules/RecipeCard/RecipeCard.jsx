@@ -4,7 +4,7 @@ import { BiSolidCategory, BiWorld } from "react-icons/bi";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { CiHashtag } from "react-icons/ci";
 
-import "./RecipeCard.css";
+import styles from "./RecipeCard.module.css";
 
 const RecipeCard = ({ details }) => {
   const { strMealThumb, strMeal, strCategory, strArea, strSource, strTags } =
@@ -14,13 +14,13 @@ const RecipeCard = ({ details }) => {
   const categoryLink = `/recetas?area=${strCategory}`;
 
   return (
-    <div className="recipe-card">
-      <div className="recipe-card-details">
-        <div className="recipe-card-time">
+    <div className={styles.recipeCard}>
+      <div className={styles.recipeCardDetails}>
+        <div className={styles.recipeCardTime}>
           60 min <IoTimeOutline />
         </div>
-        <h2 className="recipe-card-title">{strMeal}</h2>
-        <div className="recipe-card-extra-details">
+        <h2 className={styles.recipeCardTitle}>{strMeal}</h2>
+        <div className={styles.recipeCardExtraDetails}>
           {strCategory && (
             <p>
               <strong>
@@ -60,7 +60,7 @@ const RecipeCard = ({ details }) => {
           )}
         </div>
       </div>
-      <div className="recipe-card-image">
+      <div className={styles.recipeCardImage}>
         <img src={strMealThumb} alt={strMeal} />
       </div>
     </div>
