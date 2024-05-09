@@ -1,7 +1,6 @@
 
-import RecetasGrid from "../Components/Content/RecetasGrid/RecetasGrid";
-import "../variables.css";
-import "../index.css";
+import RecetasGrid from "../Components/Content/RecipesContent/RecetasGrid";
+
 
 const Recetas = () => {
     return (

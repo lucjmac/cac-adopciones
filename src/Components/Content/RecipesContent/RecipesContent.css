@@ -1,0 +1,21 @@
+img {
+    width: 100%;
+}
+
+.recetasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 280px));
+    gap: 20px;
+}
+
+.recetasCardTitle {
+    text-align: center;
+    color: var(--colorWhite);
+    background-color: var(--colorGreen);
+    max-height: 60px;
+    padding: 10px 0;
+    font-size: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

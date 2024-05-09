@@ -1,8 +1,9 @@
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { useState, useEffect } from "react";
+
 import SliderCard from "./SliderCard";
 import get from "../../utils/conexionAPI.js";
 
