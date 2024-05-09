@@ -17,7 +17,7 @@ const Contacto = () => {
     }, []);
 
     return (
-        <div>
+        <div className={styles.contacto}>
             <div className={styles.contacto_container}>
                     <section className={styles.contacto_section}>
                         <div className={styles.contacto_form}>
@@ -37,7 +37,7 @@ const Contacto = () => {
                                     <textarea name="mensaje" rows="4" placeholder="Enter your message here..."></textarea>
                                     </div>
                                     <div className={styles.form_group}>
-                                        <button type="submit" name="enviar">Enviar</button>
+                                <button type="submit" name="enviar" className={ styles.input_form}>Enviar</button>
                                     </div>
                                 </form>
                         </div>
