@@ -36,7 +36,7 @@ const RecipeCard = ({ details }) => {
                 <CiHashtag />
                 Tag:
               </strong>{" "}
-              {strTags}
+              <span className={styles.tag}>{strTags}</span>
             </p>
           )}
 

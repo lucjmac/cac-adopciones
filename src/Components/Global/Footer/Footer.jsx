@@ -1,17 +1,27 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 import styles from "./Footer.module.css";
 
+const SEARCH_PATHNAME = "/search";
+
 const Footer = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (location.pathname === SEARCH_PATHNAME) {
+      window.scrollTo({ top: 0, lef: 0, behavior: "smooth" });
+    }
+
     navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
+    setSearchTerm("");
   };
   const handleChange = (event) => {
     setSearchTerm(event.target.value);

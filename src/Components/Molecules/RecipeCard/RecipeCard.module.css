@@ -43,6 +43,10 @@
   margin-right: 7px;
 }
 
+.recipeCardExtraDetails .tag {
+  color: var(--colorWhite);
+}
+
 .recipeCardExtraDetails a {
   text-decoration: underline;
   color: var(--colorYellow);

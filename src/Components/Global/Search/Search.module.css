@@ -19,6 +19,13 @@
   font-size: 30px;
 }
 
+.pagination {
+  display: flex;
+  gap: 5px;
+  margin: 1rem auto 3rem;
+  width: max-content;
+}
+
 @media screen and (min-width: 1024px) {
   .searchPageMainTitle {
     font-size: 50px;
