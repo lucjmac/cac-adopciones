@@ -2,8 +2,6 @@ import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
 import RecetasCard from "./RecetasCard.jsx";
 
-import "./RecipesContent.css";
-
 const RecetasGrid = () => {
     const [recetas, setRecetas] = useState([]);
 
@@ -15,13 +13,11 @@ const RecetasGrid = () => {
 
     return (
         <>
-            <section className="recipesContent">
-                <ul className="recetasGrid">
-                    {recetas.map((receta) => (
-                        <RecetasCard key={receta.idMeal} recetasMap={receta} />
-                    ))}
-                </ul>
-            </section>
+            <ul className="recetasGrid">
+                {recetas.map((receta) => (
+                    <RecetasCard key={receta.idMeal} recetasMap={receta} />
+                ))}
+            </ul>
         </>
     );
 };
