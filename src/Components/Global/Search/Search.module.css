@@ -1,31 +1,31 @@
-.search-page {
+.searchPage {
   color: var(--colorGreen);
 }
 
-.search-page-main-title {
+.searchPageMainTitle {
   font-size: 30px;
   padding: 1rem;
 }
 
-.search-page-main-title span {
+.searchPageMainTitle span {
   color: var(--colorYellow);
 }
 
-.search-page-cards-wrapper {
+.searchPageCardsWrapper {
   padding: 1rem;
 }
 
-.search-page-no-title {
+.searchPageNoTitle {
   font-size: 30px;
 }
 
 @media screen and (min-width: 1024px) {
-  .search-page-main-title {
+  .searchPageMainTitle {
     font-size: 50px;
     padding: 2rem;
   }
 
-  .search-page-cards-wrapper {
+  .searchPageCardsWrapper {
     padding: 2rem;
   }
 }

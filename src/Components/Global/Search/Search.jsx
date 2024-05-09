@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import getResults from "../../../utils/getSearchResults";
 import SearchCard from "../../Molecules/SearchCard/SearchCard";
-import "./Search.css";
+import styles from "./Search.module.css";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -22,17 +22,17 @@ const Search = () => {
   }, [searchParams]);
 
   return (
-    <section className="search-page">
-      <h2 className="search-page-main-title">
-        Resultados de búsqueda: <span>{searchTerm}</span>
+    <section className={styles.searchPage}>
+      <h2 className={styles.searchPageMainTitle}>
+        Results for: <span>{searchTerm}</span>
       </h2>
-      <ul className="search-page-cards-wrapper">
+      <ul className={styles.searchPageCardsWrapper}>
         {searchResults ? (
           searchResults.map((result, index) => (
             <SearchCard key={index} item={result} />
           ))
         ) : (
-          <h3 className="search-page-no-title">No results found</h3>
+          <h3 className={styles.searchPageNoTitle}>No results found</h3>
         )}
       </ul>
     </section>
