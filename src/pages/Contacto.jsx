@@ -6,7 +6,7 @@ import get from "../utils/conexionAPI"
 
 const Contacto = () => {
 
-    const [randomRecipe, setRandomRecipe] = useState(null);
+    const [randomRecipe, setRandomRecipe] = useState([]);
 
     useEffect(() => {
         get("/random.php").then((data) => {
