@@ -16,7 +16,7 @@ const Filter = () => {
             setAreas(data.meals);
         });
 
-        get("/list.php?i=list").then((data) => {
+        get("/filter.php?i=").then((data) => {
             setIngredients(data.meals);
         });
     }, []);
@@ -37,7 +37,7 @@ const Filter = () => {
                         .includes(advancedSearch.toLowerCase())
                 );
                 const ingredientMatch = ingredients.some((ingredient) =>
-                    ingredient.strIngredient
+                    ingredient.strMeal
                         .toLowerCase()
                         .includes(advancedSearch.toLowerCase())
                 );
@@ -58,12 +58,11 @@ const Filter = () => {
 
         const filteredIngredients = ingredients.filter(
             (ingredient) =>
-                ingredient.strIngredient
+                ingredient.strMeal
                     .toLowerCase()
                     .includes(advancedSearch.toLowerCase()) ||
                 filteredCategories.some(
-                    (category) =>
-                        category.strIngredient === ingredient.strIngredient
+                    (category) => category.strMeal === ingredient.strMeal
                 )
         );
 
@@ -86,8 +85,6 @@ const Filter = () => {
                         onChange={(e) => setAdvancedSearch(e.target.value)}
                         className="searchInput"
                     />
-
-                    <button className="submitButton">Submit</button>
                 </fieldset>
 
                 <fieldset>
@@ -99,6 +96,19 @@ const Filter = () => {
                         id="categories"
                         tabIndex="-1"
                         className="categorySelect"
+                        onChange={(e) => {
+                            const selectedCategories = Array.from(
+                                e.target.selectedOptions,
+                                (option) => option.value
+                            );
+                            setFilteredCategories(
+                                filteredCategories.filter((category) =>
+                                    selectedCategories.includes(
+                                        category.strCategory
+                                    )
+                                )
+                            );
+                        }}
                     >
                         {filteredCategories.map((category) => (
                             <option
@@ -120,6 +130,17 @@ const Filter = () => {
                         id="area"
                         tabIndex="-1"
                         className="areaSelect"
+                        onChange={(e) => {
+                            const selectedAreas = Array.from(
+                                e.target.selectedOptions,
+                                (option) => option.value
+                            );
+                            setFilteredAreas(
+                                areas.filter((area) =>
+                                    selectedAreas.includes(area.strArea)
+                                )
+                            );
+                        }}
                     >
                         {filteredAreas.map((area) => (
                             <option key={area.strArea} value={area.strArea}>
@@ -138,13 +159,26 @@ const Filter = () => {
                         id="ingredient"
                         tabIndex="-1"
                         className="ingredientSelect"
+                        onChange={(e) => {
+                            const selectedIngredients = Array.from(
+                                e.target.selectedOptions,
+                                (option) => option.value
+                            );
+                            setFilteredIngredients(
+                                ingredients.filter((ingredient) =>
+                                    selectedIngredients.includes(
+                                        ingredient.strMeal
+                                    )
+                                )
+                            );
+                        }}
                     >
                         {filteredIngredients.map((ingredient) => (
                             <option
-                                key={ingredient.strIngredient}
-                                value={ingredient.strIngredient}
+                                key={ingredient.strMeal}
+                                value={ingredient.strMeal}
                             >
-                                {ingredient.strIngredient}
+                                {ingredient.strMeal}
                             </option>
                         ))}
                     </select>
