@@ -1,5 +1,5 @@
 import SliderGrid from "../Components/Slider/SliderGrid";
-import RecetaNuevas from "./RecetaNuevas";
+import RecetaNuevas from "../Components/Molecules/NewRecipe/RecetasNuevasGrid";
 
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
