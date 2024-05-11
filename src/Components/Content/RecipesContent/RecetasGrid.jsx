@@ -1,11 +1,6 @@
 import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
-import RecetasCard from "../RecetasCard";
-
-import "../../../variables.css";
-import "../../../index.css"; 
-import "./RecetasGrid.css";
-
+import RecetasCard from "./RecetasCard.jsx";
 
 const RecetasGrid = () => {
     const [recetas, setRecetas] = useState([]);
@@ -28,4 +23,3 @@ const RecetasGrid = () => {
 };
 
 export default RecetasGrid;
-
