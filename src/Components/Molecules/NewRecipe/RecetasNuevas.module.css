@@ -8,7 +8,7 @@
 
 .titulo_recetas {
   width: 100%; 
-  margin-left: 180px;
+  margin-left: 195px;
   margin-bottom: 10px; 
   font-size: 30px;
 }
@@ -16,7 +16,7 @@
 .subtitulo_recetas {
   width: 180%; 
   text-align:justify; 
-  margin-left: 180px;
+  margin-left: 195px;
   font-size: 15px;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .receta_img {
-  width: 250px; 
-  height: 310px; 
+  width: 300px; 
+  height: 370px; 
 }
 
 .receta_desc {
@@ -35,12 +35,13 @@
   left: 5px; 
   right: 5px; 
   padding: 10px; 
-  background-color: rgba(72, 73, 35, 0.3); 
-  color: rgb(37, 35, 35); 
-  font-size: 15px;
+  background-color:#244d29; 
+  color: rgb(236, 243, 238); 
+  font-size: 18px;
 }
 
 .receta_link{
-  text-decoration: underline;
-  color: rgb(36, 58, 43);
+  text-decoration:underline;
+  color: rgb(236, 243, 238);
+  font-size: 12px;
 }

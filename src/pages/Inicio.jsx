@@ -11,7 +11,7 @@ const Inicio = () => {
   useEffect(() => {
     get("/search.php?s=").then((data) => {
       if (data.meals) {
-        const tresRecetas = data.meals.slice(0,4);
+        const tresRecetas = data.meals.slice(9,13);
         setRecetas(tresRecetas);
         console.log(data)
       }

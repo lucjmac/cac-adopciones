@@ -19,7 +19,7 @@ const RecetaNuevas = ({ tresRecetas }) => {
             <div className={styles.receta_desc}>
               <h4 className={styles.receta_nombre}>{receta.strMeal}</h4>
               <h5 className={styles.receta_region}>{receta.strArea} </h5>
-              <NavLink className={styles.receta_link} to={`/receta/${receta.idMeal}`}>View Recipe</NavLink>
+              <NavLink className={styles.receta_link} to={`/receta/${receta.idMeal}`}>View Recipe </NavLink>
             </div>
            
           </div>
