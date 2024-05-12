@@ -11,7 +11,7 @@ const Inicio = () => {
     return {
       img: category.strCategoryThumb,
       label: category.strCategory,
-      to: `/recetas?categoria=${category.strCategory}`,
+      to: `/recetas?categories=${category.strCategory}`,
     };
   });
 
