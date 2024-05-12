@@ -14,7 +14,7 @@ const Inicio = () => {
       if (data.meals) {
         const maxRecepies = data.meals.length - 7;
         const randomNumber = Math.floor(Math.random() * maxRecepies) + 1;
-        const tresRecetas = data.meals.slice(randomNumber, randomNumber + 4);
+        const tresRecetas = data.meals.slice(randomNumber, randomNumber + 10);
         setRecetas(tresRecetas);
       } else {
         console.error("Error");
