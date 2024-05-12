@@ -1,0 +1,43 @@
+.searchPage {
+  color: var(--colorGreen);
+}
+
+.searchPageMainTitle {
+  font-size: 30px;
+  padding: 1rem;
+}
+
+.searchPageMainTitle span {
+  color: var(--colorYellow);
+}
+
+.searchPageCardsWrapper {
+  padding: 1rem;
+}
+
+.searchPageNoTitle {
+  font-size: 30px;
+  padding: 2rem;
+}
+
+.pagination {
+  display: flex;
+  gap: 7px;
+  margin: 1rem auto 3rem;
+  width: max-content;
+}
+
+.pageButtons {
+  margin: 0 0.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .searchPageMainTitle {
+    font-size: 50px;
+    padding: 2rem;
+  }
+
+  .searchPageCardsWrapper {
+    padding: 2rem;
+  }
+}

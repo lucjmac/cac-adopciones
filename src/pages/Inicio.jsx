@@ -1,32 +1,34 @@
+import { useState, useEffect, useContext } from "react";
+import { RecipesContext } from "../Context/Context";
+import Hero from "../Components/Hero/Hero";
 import SliderGrid from "../Components/Slider/SliderGrid";
 import RecetaNuevas from "../Components/Molecules/NewRecipe/RecetasNuevasGrid";
 
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import get from "../utils/conexionAPI"
+import get from "../utils/conexionAPI";
 
 const Inicio = () => {
-
   const [recetas, setRecetas] = useState([]);
+
   useEffect(() => {
     get("/search.php?s=").then((data) => {
       if (data.meals) {
-        const tresRecetas = data.meals.slice(9,13);
+        const maxRecepies = data.meals.length - 7;
+        const randomNumber = Math.floor(Math.random() * maxRecepies) + 1;
+        const tresRecetas = data.meals.slice(randomNumber, randomNumber + 4);
         setRecetas(tresRecetas);
-        console.log(data)
-      }
-      else {
+      } else {
         console.error("Error");
       }
     });
-
   }, []);
+  const context = useContext(RecipesContext);
 
   return (
     <>
+      <Hero recetas={context.recipes} loading={context.loading} />
       <SliderGrid />
       <br />
-      <RecetaNuevas tresRecetas={ recetas} />
+      <RecetaNuevas tresRecetas={recetas} />
     </>
   );
 };

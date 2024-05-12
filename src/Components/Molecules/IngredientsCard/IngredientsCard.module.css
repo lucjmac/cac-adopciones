@@ -1,4 +1,4 @@
-.ingredients-card {
+.ingredientsCard {
   color: var(--colorGreen);
   border: 1px solid var(--colorGreen);
   padding: 2rem;
@@ -7,16 +7,16 @@
     0 11px 24px rgba(0, 0, 0, 0.03), 0 0 0 rgba(0, 0, 0, 0.03);
 }
 
-.ingredients-card-header-wrapper h3 {
+.ingredientsHeaderWrapper h3 {
   font-size: 25px;
   margin-bottom: 5px;
 }
 
-.ingredients-card-title {
+.ingredientsCardTitle {
   font-size: 20px;
 }
 
-.ingredients-card-item {
+.ingredientsCardItem {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
@@ -24,12 +24,12 @@
   font-size: 14px;
 }
 
-.ingredients-card-item .ingredient {
+.ingredientsCardItem .ingredient {
   opacity: 0.8;
 }
 
 @media screen and (min-width: 1024px) {
-  .ingredients-card {
+  .ingredientsCard {
     width: 45%;
   }
 }

@@ -1,20 +1,20 @@
-.step-card {
+.stepCard {
   color: var(--colorGreen);
   padding: 2rem;
   width: 100%;
 }
 
-.step-card-title {
+.stepCardTitle {
   font-size: 25px;
   margin-bottom: 30px;
 }
 
-.step-card-steps {
+.stepCardSteps {
   font-size: 16px;
 }
 
 @media screen and (min-width: 1024px) {
-  .step-card {
+  .stepCard {
     width: 50%;
   }
 }
