@@ -74,6 +74,8 @@ const RecetasGrid = () => {
     setFilteredRecipes(selected);
   }, [querySearch]);
 
+  console.log("filteredRecipes", filteredRecipes);
+
   return (
     <ul className="recetasGrid">
       {filteredRecipes &&
