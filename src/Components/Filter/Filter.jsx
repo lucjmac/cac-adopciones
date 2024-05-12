@@ -99,7 +99,6 @@ const Filter = () => {
           id="categories"
           tabIndex="-1"
           className="categorySelect"
-          defaultValue=""
           onChange={(e) => {
             setCategory(e.target.value);
             /*
@@ -130,7 +129,6 @@ const Filter = () => {
           id="area"
           tabIndex="-1"
           className="areaSelect"
-          defaultValue=""
           onChange={(e) => {
             setArea(e.target.value);
             /*const selectedAreas = Array.from(
@@ -158,7 +156,6 @@ const Filter = () => {
           id="ingredient"
           tabIndex="-1"
           className="ingredientSelect"
-          defaultValue=""
           onChange={(e) => {
             setIngredient(e.target.value);
             /*
