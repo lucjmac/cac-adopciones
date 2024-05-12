@@ -15,8 +15,8 @@ const Hero = ({ recetas = [], loading }) => {
   return (
     <section className={styles.container}>
       <article
-        className={styles.wrapper}
-        onClick={() => navigate(`/receta/${receta?.idMeal}`)}
+        className={styles.wrapper + (loading ? ` ${styles.disabled}` : "")}
+        onClick={loading ? null : () => navigate(`/receta/${receta?.idMeal}`)}
       >
         {loading ? (
           <Spinner />
