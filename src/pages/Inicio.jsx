@@ -6,10 +6,19 @@ import SliderGrid from "../Components/Slider/SliderGrid";
 const Inicio = () => {
   const context = useContext(RecipesContext);
 
+  const categories = context.categories || [];
+  const parsedCategories = categories.map((category) => {
+    return {
+      img: category.strCategoryThumb,
+      label: category.strCategory,
+      to: `/recetas?categoria=${category.strCategory}`,
+    };
+  });
+
   return (
     <>
       <Hero recetas={context.recipes} loading={context.loading} />
-      <SliderGrid />
+      <SliderGrid list={parsedCategories} title="CATEGORIES" />
     </>
   );
 };
