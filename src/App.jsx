@@ -28,7 +28,6 @@ const App = () => {
 
       getAllResults().then((data) => {
         const recipes = data.map((data) => data.meals[0]);
-
         setRecetas(recipes);
         setLoading(false);
       });
