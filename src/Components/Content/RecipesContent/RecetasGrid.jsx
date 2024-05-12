@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { RecipesContext } from "../../../Context/Context.js";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const RecetasGrid = () => {
   const context = useContext(RecipesContext);
@@ -10,86 +10,83 @@ const RecetasGrid = () => {
   const queryCategory = searchParams.get("categories");
   const queryArea = searchParams.get("area");
   const queryIngredient = searchParams.get("ingredient");
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
 
-  let filteredRecipes = context.recipes || [];
+  useEffect(() => {
+    if (filteredRecipes.length > 0) return;
 
-  if (querySearch && filteredRecipes.length > 0) {
-    filteredRecipes = filteredRecipes.filter(
-      (recipe) =>
-        recipe?.strMeal?.includes(querySearch) ||
-        recipe?.strArea?.includes(querySearch) ||
-        recipe?.strMeal?.includes(querySearch) ||
-        recipe?.strCategory?.includes(querySearch) ||
-        recipe?.strIngredient1?.includes(querySearch) ||
-        recipe?.strIngredient2?.includes(querySearch) ||
-        recipe?.strIngredient3?.includes(querySearch) ||
-        recipe?.strIngredient4?.includes(querySearch) ||
-        recipe?.strIngredient5?.includes(querySearch) ||
-        recipe?.strIngredient6?.includes(querySearch) ||
-        recipe?.strIngredient7?.includes(querySearch) ||
-        recipe?.strIngredient8?.includes(querySearch) ||
-        recipe?.strIngredient9?.includes(querySearch) ||
-        recipe?.strIngredient10?.includes(querySearch) ||
-        recipe?.strIngredient11?.includes(querySearch) ||
-        recipe?.strIngredient12?.includes(querySearch) ||
-        recipe?.strIngredient13?.includes(querySearch) ||
-        recipe?.strIngredient14?.includes(querySearch) ||
-        recipe?.strIngredient15?.includes(querySearch) ||
-        recipe?.strIngredient16?.includes(querySearch) ||
-        recipe?.strIngredient17?.includes(querySearch) ||
-        recipe?.strIngredient18?.includes(querySearch) ||
-        recipe?.strIngredient19?.includes(querySearch) ||
-        recipe?.strIngredient20?.includes(querySearch)
-    );
-  }
+    setFilteredRecipes(context.recipes || []);
+  }, [context.recipes, filteredRecipes]);
 
-  if (queryCategory && filteredRecipes.length > 0) {
-    filteredRecipes = filteredRecipes.filter((recipe) =>
-      recipe?.strCategory?.includes(queryCategory)
+  useEffect(() => {
+    if (!queryCategory || filteredRecipes.length === 0) return;
+    const selected = filteredRecipes.filter(
+      (recipe) => recipe.strCategory === queryCategory
     );
-  }
+    setFilteredRecipes(selected);
+  }, [queryCategory]);
 
-  if (queryArea && filteredRecipes.length > 0) {
-    filteredRecipes = filteredRecipes.filter((recipe) =>
-      recipe?.strArea?.includes(queryArea)
+  useEffect(() => {
+    if (!queryArea || filteredRecipes.length === 0) return;
+    const selected = filteredRecipes.filter(
+      (recipe) => recipe.strArea === queryArea
     );
-  }
-  if (queryIngredient && filteredRecipes.length > 0) {
-    filteredRecipes = filteredRecipes.filter(
-      (recipe) =>
-        recipe?.strIngredient1?.includes(queryIngredient) ||
-        recipe?.strIngredient2?.includes(queryIngredient) ||
-        recipe?.strIngredient3?.includes(queryIngredient) ||
-        recipe?.strIngredient4?.includes(queryIngredient) ||
-        recipe?.strIngredient5?.includes(queryIngredient) ||
-        recipe?.strIngredient6?.includes(queryIngredient) ||
-        recipe?.strIngredient7?.includes(queryIngredient) ||
-        recipe?.strIngredient8?.includes(queryIngredient) ||
-        recipe?.strIngredient9?.includes(queryIngredient) ||
-        recipe?.strIngredient10?.includes(queryIngredient) ||
-        recipe?.strIngredient11?.includes(queryIngredient) ||
-        recipe?.strIngredient12?.includes(queryIngredient) ||
-        recipe?.strIngredient13?.includes(queryIngredient) ||
-        recipe?.strIngredient14?.includes(queryIngredient) ||
-        recipe?.strIngredient15?.includes(queryIngredient) ||
-        recipe?.strIngredient16?.includes(queryIngredient) ||
-        recipe?.strIngredient17?.includes(queryIngredient) ||
-        recipe?.strIngredient18?.includes(queryIngredient) ||
-        recipe?.strIngredient19?.includes(queryIngredient) ||
-        recipe?.strIngredient20?.includes(queryIngredient)
-    );
-  }
+    setFilteredRecipes(selected);
+  }, [queryArea]);
+
+  useEffect(() => {
+    if (!queryIngredient || filteredRecipes.length === 0) return;
+    const selected = filteredRecipes.filter((recipe) => {
+      const ingredients = Object.entries(recipe)
+        .filter((entry) => entry[0].includes("strIngredient"))
+        .map((entry) => entry[1])
+        .filter((result) => result !== "" && result !== null);
+
+      const hasIngredient = ingredients.some((ingredient) =>
+        ingredient.includes(queryIngredient)
+      );
+
+      if (hasIngredient) {
+        return recipe;
+      }
+    });
+
+    setFilteredRecipes(selected);
+  }, [queryIngredient]);
+
+  useEffect(() => {
+    if (!querySearch || filteredRecipes.length === 0) return;
+
+    const selected = filteredRecipes.filter((recipe) => {
+      const propsWithValues = Object.entries(recipe)
+        .map((entry) => entry[1])
+        .filter((entry) => entry !== "" && entry !== " " && entry !== null);
+
+      const hasIngredient = propsWithValues.some((prop) =>
+        prop.includes(querySearch)
+      );
+
+      if (hasIngredient) {
+        return recipe;
+      }
+    });
+
+    setFilteredRecipes(selected);
+  }, [querySearch]);
 
   return (
     <ul className="recetasGrid">
-      {filteredRecipes.map((receta) => (
-        <li key={receta.idMeal} className="recetasCard">
-          <div>
-            <img src={receta.strMealThumb} alt={receta.strMeal} />
-            <h3 className="recetasCardTitle">{receta.strMeal}</h3>
-          </div>
-        </li>
-      ))}
+      {filteredRecipes &&
+        filteredRecipes.map((receta) => (
+          <li key={receta.idMeal} className="recetasCard">
+            <div>
+              <img src={receta.strMealThumb} alt={receta.strMeal} />
+              <h3 className="recetasCardTitle">{receta.strMeal}</h3>
+            </div>
+          </li>
+        ))}
+
+      {filteredRecipes.length === 0 && <p>No results found</p>}
     </ul>
   );
 };
