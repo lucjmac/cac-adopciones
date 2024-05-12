@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { RecipesContext } from "../Context/Context";
 import Hero from "../Components/Hero/Hero";
 import SliderGrid from "../Components/Slider/SliderGrid";
-import { getAllResults } from "../utils/getSearchResults";
 
 const Inicio = () => {
-  const [recetas, setRecetas] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [fetching, setFetching] = useState(false);
+  const context = useContext(RecipesContext);
 
-  useEffect(() => {
-    if (!fetching) {
-      setFetching(true);
-
-      getAllResults().then((data) => {
-        const recipes = data.map((data) => data.meals[0]);
-
-        setRecetas(recipes);
-        setLoading(false);
-      });
-    }
-  }, []);
   return (
     <>
-      <Hero recetas={recetas} loading={loading} />
+      <Hero recetas={context.recipes} loading={context.loading} />
       <SliderGrid />
     </>
   );
