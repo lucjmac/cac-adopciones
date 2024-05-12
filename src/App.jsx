@@ -12,9 +12,13 @@ import Receta from "./pages/Receta";
 import { RecipesContext } from "./Context/Context";
 import { useEffect, useState } from "react";
 import { getAllResults } from "./utils/getSearchResults";
+import get from "./utils/conexionAPI";
 
 const App = () => {
   const [recetas, setRecetas] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [areas, setAreas] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [loading, setLoading] = useState(true);
   const [fetching, setFetching] = useState(false);
 
@@ -24,9 +28,20 @@ const App = () => {
 
       getAllResults().then((data) => {
         const recipes = data.map((data) => data.meals[0]);
-
         setRecetas(recipes);
         setLoading(false);
+      });
+
+      get("/categories.php").then((data) => {
+        setCategorias(data.categories);
+      });
+
+      get("/list.php?a=list").then((data) => {
+        setAreas(data.meals);
+      });
+
+      get("/list.php?i=").then((data) => {
+        setIngredients(data.meals);
       });
     }
   }, []);
@@ -34,7 +49,15 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <RecipesContext.Provider value={{ recipes: recetas, loading }}>
+        <RecipesContext.Provider
+          value={{
+            recipes: recetas,
+            categories: categorias,
+            areas,
+            ingredients,
+            loading,
+          }}
+        >
           <Header />
 
           <Routes>
