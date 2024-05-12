@@ -58,8 +58,9 @@ label {
     font-size: 17px;
 }
 
-input[type="email"],
-input[type="text"],
+
+.contacto input[type="email"],
+.contacto input[type="text"],
 
 textarea {
     width:  calc(100% - 22px);
