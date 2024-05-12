@@ -1,10 +1,5 @@
 import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
-import RecetasCard from "../RecetasCard";
-
-import "../../../variables.css";
-import "../../../index.css";
-import "./RecetasGrid.css";
 
 const RecetasGrid = () => {
   const [recetas, setRecetas] = useState([]);
@@ -19,7 +14,12 @@ const RecetasGrid = () => {
     <>
       <ul className="recetasGrid">
         {recetas.map((receta) => (
-          <RecetasCard key={receta.idMeal} recetasMap={receta} />
+          <li key={receta.idMeal} className="recetasCard">
+            <div>
+              <img src={receta.strMealThumb} alt={receta.strMeal} />
+              <h3 className="recetasCardTitle">{receta.strMeal}</h3>
+            </div>
+          </li>
         ))}
       </ul>
     </>

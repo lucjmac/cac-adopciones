@@ -9,25 +9,47 @@ import Buscador from "./pages/Buscador";
 import DetalleReceta from "./pages/DetalleReceta";
 import Error404 from "./pages/Error404";
 import Receta from "./pages/Receta";
+import { RecipesContext } from "./Context/Context";
+import { useEffect, useState } from "react";
+import { getAllResults } from "./utils/getSearchResults";
 
 const App = () => {
+  const [recetas, setRecetas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [fetching, setFetching] = useState(false);
+
+  useEffect(() => {
+    if (!fetching) {
+      setFetching(true);
+
+      getAllResults().then((data) => {
+        const recipes = data.map((data) => data.meals[0]);
+
+        setRecetas(recipes);
+        setLoading(false);
+      });
+    }
+  }, []);
+
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <RecipesContext.Provider value={{ recipes: recetas, loading }}>
+          <Header />
 
-        <Routes>
-          <Route path="/" element={<Inicio />}></Route>
-          <Route path="/contacto" element={<Contacto />}></Route>
-          <Route path="/recetas" element={<Recetas />}></Route>
-          <Route path="/search" element={<Buscador />}></Route>
-          <Route path="/receta/:recetaId" element={<Receta />}></Route>
-          <Route path="/recetas/:id" element={<DetalleReceta />}></Route>
-          <Route path="/error404" element={<Error404 />}></Route>
-          <Route path="/*" element={<Navigate to="/error404" />}></Route>
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Inicio />}></Route>
+            <Route path="/contacto" element={<Contacto />}></Route>
+            <Route path="/recetas" element={<Recetas />}></Route>
+            <Route path="/search" element={<Buscador />}></Route>
+            <Route path="/receta/:recetaId" element={<Receta />}></Route>
+            <Route path="/recetas/:id" element={<DetalleReceta />}></Route>
+            <Route path="/error404" element={<Error404 />}></Route>
+            <Route path="/*" element={<Navigate to="/error404" />}></Route>
+          </Routes>
 
-        <Footer />
+          <Footer />
+        </RecipesContext.Provider>
       </BrowserRouter>
     </>
   );

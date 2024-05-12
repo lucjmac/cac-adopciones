@@ -1,15 +1,18 @@
-
-import RecetasGrid from "../Components/Content/RecetasGrid/RecetasGrid";
-import "../variables.css";
-import "../index.css";
+import Filter from "../Components/Filter/Filter";
+import RecetasGrid from "../Components/Content/RecipesContent/RecetasGrid";
+import "./Recetas.css";
 
 const Recetas = () => {
     return (
-        <>
-            <h2>Recetas</h2>
-            <RecetasGrid />
-        </>
+        <div className="recipesContainer">
+            <section className="filterContent">
+                <Filter />
+            </section>
+            <section className="recipesContent">
+                <RecetasGrid />
+            </section>
+        </div>
     );
 };
 
-export default Recetas; 
+export default Recetas;
