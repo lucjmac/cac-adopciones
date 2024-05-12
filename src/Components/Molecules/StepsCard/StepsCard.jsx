@@ -1,10 +1,10 @@
-import "./StepsCard.css";
+import styles from "./StepsCard.module.css";
 
 const StepsCard = ({ detail }) => {
   return (
-    <div className="step-card">
-      <h3 className="step-card-title">Steps</h3>
-      <p className="step-card-steps">{detail}</p>
+    <div className={styles.stepCard}>
+      <h3 className={styles.stepCardTitle}>Steps</h3>
+      <p className={styles.stepCardSteps}>{detail}</p>
     </div>
   );
 };

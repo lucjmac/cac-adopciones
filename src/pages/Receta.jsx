@@ -37,8 +37,6 @@ const Receta = () => {
     setIngredients(ingredientsWithQuantity);
   };
 
-  console.log("result", result, ingredients);
-
   return (
     <section className="recipe-page">
       <RecipeCard details={result} />
