@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import styles from "./RecetasGrid.module.css";
 import Heading from "../../Atoms/Heading/Heading.jsx";
 import Pagination from "../../Molecules/Pagination/Pagination.jsx";
+import Spinner from "../../Spinner/Spinner.jsx";
 
 const MAX_ITEMS = 15;
 
@@ -82,31 +83,43 @@ const RecetasGrid = () => {
       <p className={styles.totalResults}>
         Total results: {filteredRecipes.length}
       </p>
-      <ul className={styles.recetasGrid}>
-        {filteredRecipes &&
-          filteredRecipes
-            .slice(currentIndex * MAX_ITEMS, MAX_ITEMS * (currentIndex + 1))
-            .map((receta) => (
-              <li key={receta.idMeal} className={styles.recetasCard}>
-                <NavLink to={`/receta/${receta.idMeal}`}>
-                  <img src={receta.strMealThumb} alt={receta.strMeal} />
-                  <h3 className={styles.recetasCardTitle}>{receta.strMeal}</h3>
-                </NavLink>
-              </li>
-            ))}
+      {loading ? (
+        <div
+          style={{ padding: "5rem", display: "flex", justifyContent: "center" }}
+        >
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          <ul className={styles.recetasGrid}>
+            {filteredRecipes &&
+              filteredRecipes
+                .slice(currentIndex * MAX_ITEMS, MAX_ITEMS * (currentIndex + 1))
+                .map((receta) => (
+                  <li key={receta.idMeal} className={styles.recetasCard}>
+                    <NavLink to={`/receta/${receta.idMeal}`}>
+                      <img src={receta.strMealThumb} alt={receta.strMeal} />
+                      <h3 className={styles.recetasCardTitle}>
+                        {receta.strMeal}
+                      </h3>
+                    </NavLink>
+                  </li>
+                ))}
 
-        {filteredRecipes.length === 0 && (
-          <p className={styles.totalResults}>No results found</p>
-        )}
-      </ul>
+            {filteredRecipes.length === 0 && (
+              <p className={styles.totalResults}>No results found</p>
+            )}
+          </ul>
 
-      {filteredRecipes && filteredRecipes.length > MAX_ITEMS && (
-        <Pagination
-          maxItems={MAX_ITEMS}
-          searchResults={filteredRecipes}
-          currentIndex={currentIndex}
-          setCurrentIndex={setCurrentIndex}
-        />
+          {filteredRecipes && filteredRecipes.length > MAX_ITEMS && (
+            <Pagination
+              maxItems={MAX_ITEMS}
+              searchResults={filteredRecipes}
+              currentIndex={currentIndex}
+              setCurrentIndex={setCurrentIndex}
+            />
+          )}
+        </>
       )}
     </>
   );
