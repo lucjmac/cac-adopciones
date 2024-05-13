@@ -1,27 +1,18 @@
 import { Link } from "react-router-dom";
 
-const SliderCard = ({ categoriasMap }) => {
-    const imgURL = categoriasMap.strCategoryThumb;
-    return (
-        <>
-            <div>
-                <div className="sliderCard">
-                    <Link
-                        to={`/recetas?categoria=${categoriasMap.strCategory}`}
-                    >
-                        <img
-                            className="sliderImg"
-                            src={imgURL}
-                            alt={categoriasMap.strCategory}
-                        />
-                        <h3 className="SliderImgTitle">
-                            {categoriasMap.strCategory}
-                        </h3>
-                    </Link>
-                </div>
-            </div>
-        </>
-    );
+const SliderCard = ({ data }) => {
+  return (
+    <div>
+      <div className="sliderCard">
+        <Link to={data.to}>
+          <div className="sliderImgWrapper">
+            <img className="sliderImg" src={data.img} alt={data.label} />
+          </div>
+          <h3 className="SliderImgTitle">{data.label}</h3>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default SliderCard;

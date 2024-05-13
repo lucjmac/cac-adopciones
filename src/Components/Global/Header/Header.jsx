@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
-import Branding from "../../Branding/Branding";
-
 import styles from "./Header.module.css";
 import MainNav from "../../MainNav/MainNav";
 

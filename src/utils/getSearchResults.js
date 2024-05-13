@@ -17,7 +17,7 @@ export const getAllResults = () => {
       return idList;
     })
     .then((idList) => {
-      const truncatedList = idList.slice(0, 80);
+      const truncatedList = idList.slice(0, 90);
       const calls = [];
       truncatedList.forEach((id) => {
         calls.push(getById(id));
