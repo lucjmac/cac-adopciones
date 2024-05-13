@@ -4,8 +4,7 @@
 
 .sliderTitle {
   max-width: 1280px;
-  padding-left: 40px;
-  margin: 0 auto 20px auto;
+  margin: 0 0 20px 195px;
   font-size: 2.5em;
   font-weight: 800;
   color: var(--colorGreen);
@@ -19,6 +18,8 @@
 .sliderCard {
   max-width: 280px;
   flex-direction: column;
+  border-radius: 16px; 
+  box-shadow: #333333 5px 5px 10px;
 }
 
 .slick-slide > div > div {
@@ -26,9 +27,13 @@
   justify-content: center;
 }
 
+.slick-track {
+  padding: 10px 0;
+}
+
 .sliderImg {
   width: 280px;
-  /*height: 190px;*/
+  height: 100%;
 }
 
 .sliderImgWrapper {
@@ -48,6 +53,11 @@
   padding: 10px 0;
   color: var(--colorGreen);
   font-weight: 400;
+  border-radius: 0 0 16px 16px;
+  -webkit-border-radius: 0 0 16px 16px;
+  -moz-border-radius: 0 0 16px 16px;
+  -ms-border-radius: 0 0 16px 16px;
+  -o-border-radius: 0 0 16px 16px;
 }
 
 .slick-prev,
