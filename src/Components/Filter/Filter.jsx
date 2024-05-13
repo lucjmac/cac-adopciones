@@ -1,16 +1,50 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { RecipesContext } from "../../Context/Context.js";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Heading from "../Atoms/Heading/Heading.jsx";
+import Select from "react-select";
 import styles from "./Filter.module.css";
 
 const Filter = () => {
   const context = useContext(RecipesContext);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const refSelect = useRef([]);
+  const [ingredientItems, setIngredientItems] = useState([]);
+  const [areaItems, setAreaItems] = useState([]);
+  const [categoryItems, setCategoryItems] = useState([]);
 
   const { categories, areas, ingredients } = context;
+
+  useEffect(() => {
+    setIngredientItems(
+      ingredients.map((item) => {
+        return {
+          value: item.strIngredient.toLowerCase(),
+          label: item.strIngredient,
+        };
+      })
+    );
+
+    setAreaItems(
+      areas.map((item) => {
+        return {
+          value: item.strArea.toLowerCase(),
+          label: item.strArea,
+        };
+      })
+    );
+
+    setCategoryItems(
+      categories.map((item) => {
+        return {
+          value: item.strCategory.toLowerCase(),
+          label: item.strCategory,
+        };
+      })
+    );
+  }, [ingredients, areas, categories]);
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
@@ -49,6 +83,7 @@ const Filter = () => {
     setCategory("");
     setArea("");
     setIngredient("");
+    refSelect.current.forEach((select) => select.setValue(""));
     navigate(`/recetas`);
   };
 
@@ -58,15 +93,21 @@ const Filter = () => {
     const setQueries = [setSearch, setCategory, setArea, setIngredient];
     setQueries[index]("");
 
-    const params = window.location.search
-      .split("?")[1]
-      .split("&")
-      .filter((item) => !item.includes(queries[index]))
-      .join("&");
-
-    navigate(`/recetas?${params}`, {
-      state: { deleted: queries[index], value: queriesValues[index] },
+    refSelect.current.forEach((select, selIndex) => {
+      if (selIndex + 1 === index) select.setValue("");
     });
+
+    if (window.location.search) {
+      const params = window.location.search
+        .split("?")[1]
+        .split("&")
+        .filter((item) => !item.includes(queries[index]))
+        .join("&");
+
+      navigate(`/recetas?${params}`, {
+        state: { deleted: queries[index], value: queriesValues[index] },
+      });
+    }
   };
 
   return (
@@ -74,7 +115,7 @@ const Filter = () => {
       <Heading as="h1" title="Filters" className="" />
       <div className={styles.filterTags}>
         {[search, category, area, ingredient].map((tag, index) => {
-          if (tag === "") return;
+          if (tag === "" || tag === null || tag === undefined) return;
           return (
             <div key={index}>
               <p>{tag}</p>
@@ -89,7 +130,7 @@ const Filter = () => {
         })}
       </div>
       <form className={styles.filterForm} onSubmit={(e) => e.preventDefault()}>
-        <fieldset>
+        <fieldset className={styles.search}>
           <label htmlFor="advanced-search">Advanced Search</label>
           <input
             name="search"
@@ -102,7 +143,15 @@ const Filter = () => {
         </fieldset>
         <fieldset>
           <label htmlFor="categories">Category</label>
-          <select
+          <Select
+            ref={(el) => (refSelect.current[0] = el)}
+            onChange={(e) => {
+              setCategory(e.label);
+            }}
+            isSearchable={true}
+            options={categoryItems}
+          />
+          {/* <select
             name="categories"
             multiple
             placeholder="Search Category"
@@ -122,57 +171,31 @@ const Filter = () => {
                 {itemCategory.strCategory}
               </option>
             ))}
-          </select>
+          </select> */}
         </fieldset>
         <fieldset>
           <label htmlFor="area">Area</label>
-          <select
-            name="area"
-            multiple
-            placeholder="Search Area"
-            id="area"
-            tabIndex="-1"
-            className={styles.selectInput}
+          <Select
+            ref={(el) => (refSelect.current[1] = el)}
             onChange={(e) => {
-              setArea(e.target.value);
+              setArea(e.label);
             }}
-          >
-            {areas.map((itemArea) => (
-              <option
-                key={itemArea.strArea}
-                value={itemArea.strArea}
-                selected={area && area === itemArea.strArea}
-              >
-                {itemArea.strArea}
-              </option>
-            ))}
-          </select>
+            isClearable={true}
+            isSearchable={true}
+            options={areaItems}
+          />
         </fieldset>
         <fieldset>
           <label htmlFor="ingredient">Ingredient</label>
-          <select
-            name="ingredient"
-            multiple
-            placeholder="Search Ingredient"
-            id="ingredient"
-            tabIndex="-1"
-            className={styles.selectInput}
+          <Select
+            ref={(el) => (refSelect.current[2] = el)}
             onChange={(e) => {
-              setIngredient(e.target.value);
+              setIngredient(e.label);
             }}
-          >
-            {ingredients.map((itemIngredient) => (
-              <option
-                key={`ingredient_${itemIngredient.strIngredient}`}
-                value={itemIngredient.strIngredient}
-                selected={
-                  ingredient && ingredient === itemIngredient.strIngredient
-                }
-              >
-                {itemIngredient.strIngredient}
-              </option>
-            ))}
-          </select>
+            isClearable={true}
+            isSearchable={true}
+            options={ingredientItems}
+          />
         </fieldset>
         <div className={styles.ctaWrapper}>
           <button
