@@ -15,7 +15,7 @@ const Search = () => {
 
   useEffect(() => {
     if (searchTerm !== "") {
-      getResults(`filter.php?c=${searchTerm}`).then((results) =>
+      getResults(`filter.php?i=${searchTerm}`).then((results) =>
         setSearchResults(results.meals)
       );
     }
