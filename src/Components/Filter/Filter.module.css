@@ -1,2 +1,34 @@
+.filterTags {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filterTags div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  border: 1px solid var(--colorGreen);
+  width: max-content;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 3px;
+}
+
+.tagClearButton {
+  padding: 0;
+  background-color: transparent;
+  color: currentColor;
+  transition: color 0.3s ease;
+}
+
+.tagClearButton:hover {
+  background-color: transparent;
+  color: var(--colorYellow);
+}
+
 @media screen and (min-width: 1024px) {
 }

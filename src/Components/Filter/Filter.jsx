@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { RecipesContext } from "../../Context/Context.js";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import styles from "./Filter.module.css";
 import Heading from "../Atoms/Heading/Heading.jsx";
+import styles from "./Filter.module.css";
 
 const Filter = () => {
   const context = useContext(RecipesContext);
@@ -70,7 +70,7 @@ const Filter = () => {
   };
 
   return (
-    <>
+    <div>
       <Heading as="h1" title="Filters" className="" />
       <div className={styles.filterTags}>
         {[search, category, area, ingredient].map((tag, index) => {
@@ -191,7 +191,7 @@ const Filter = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
