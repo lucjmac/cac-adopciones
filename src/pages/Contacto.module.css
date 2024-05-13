@@ -46,7 +46,8 @@
 
 .image_recipe{
     flex: 1;
-    max-width: 250px;
+    max-width: 1000px;
+    width: 700px;
     margin-left: 10px;
 }
 .form_group {

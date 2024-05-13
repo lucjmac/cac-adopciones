@@ -8,16 +8,19 @@
 
 .titulo_recetas {
   width: 100%; 
-  margin-left: 195px;
+  margin-left: 250px;
   margin-bottom: 10px; 
   font-size: 30px;
+  color: var(--bgDarkGreyTint2)
 }
 
 .subtitulo_recetas {
   width: 180%; 
   text-align:justify; 
-  margin-left: 195px;
+  margin-left: 250px;
   font-size: 15px;
+  color: var(--bgDarkGreyTint2)
+  
 }
 
 .receta {

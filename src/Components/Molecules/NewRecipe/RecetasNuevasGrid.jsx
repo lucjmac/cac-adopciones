@@ -18,12 +18,12 @@ const RecetaNuevas = ({ list }) => {
 
   return (
     <div className={styles.recetas_container}>
-      <h2 className={styles.titulo_recetas}>New Recipes</h2>
+      <h2 className={styles.titulo_recetas}>NEW RECIPES</h2>
       <h3 className={styles.subtitulo_recetas}>
         Every week new recipes to guide you and achieve your tastes
       </h3>
 
-      <SliderGrid list={list} />
+      <SliderGrid list={list}/>
     </div>
 
   );
