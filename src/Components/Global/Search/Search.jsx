@@ -4,6 +4,7 @@ import getResults from "../../../utils/getSearchResults";
 import SearchCard from "../../Molecules/SearchCard/SearchCard";
 import styles from "./Search.module.css";
 import Pagination from "../../Molecules/Pagination/Pagination";
+import Heading from "../../Atoms/Heading/Heading";
 
 const MAX_ITEMS = 10;
 
@@ -27,9 +28,9 @@ const Search = () => {
 
   return (
     <section className={styles.searchPage}>
-      <h2 className={styles.searchPageMainTitle}>
+      <h1 className={styles.searchPageMainTitle}>
         Results for: <span>{searchTerm}</span>
-      </h2>
+      </h1>
       <ul className={styles.searchPageCardsWrapper}>
         {searchResults ? (
           searchResults
