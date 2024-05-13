@@ -1,11 +1,9 @@
 import { useState, useContext } from "react";
-import {
-  useSearchParams,
-  useNavigate,
-  createSearchParams,
-} from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { RecipesContext } from "../../Context/Context.js";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import styles from "./Filter.module.css";
+import Heading from "../Atoms/Heading/Heading.jsx";
 
 const Filter = () => {
   const context = useContext(RecipesContext);
@@ -27,7 +25,6 @@ const Filter = () => {
       });
     }
     if (category) {
-      console.log("entra aca");
       setSearchParams((searchParams) => {
         searchParams.set("category", category);
         return searchParams;
@@ -74,15 +71,15 @@ const Filter = () => {
 
   return (
     <>
-      <h1>Filters</h1>
-      <div className="filterTags">
+      <Heading as="h1" title="Filters" className="" />
+      <div className={styles.filterTags}>
         {[search, category, area, ingredient].map((tag, index) => {
           if (tag === "") return;
           return (
             <div key={index}>
               <p>{tag}</p>
               <button
-                className="tagClearButton"
+                className={styles.tagClearButton}
                 onClick={() => clearSearchParam(index)}
               >
                 <IoCloseCircleOutline />
@@ -91,7 +88,7 @@ const Filter = () => {
           );
         })}
       </div>
-      <form className="filterForm" onSubmit={(e) => e.preventDefault()}>
+      <form className={styles.filterForm} onSubmit={(e) => e.preventDefault()}>
         <fieldset>
           <label htmlFor="advanced-search">Advanced Search</label>
           <input
@@ -100,7 +97,7 @@ const Filter = () => {
             placeholder="Search by Category, Area or Ingredient"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="searchInput"
+            className={styles.searchInput}
           />
         </fieldset>
         <fieldset>
@@ -111,7 +108,7 @@ const Filter = () => {
             placeholder="Search Category"
             id="categories"
             tabIndex="-1"
-            className="categorySelect"
+            className={styles.selectInput}
             onChange={(e) => {
               setCategory(e.target.value);
             }}
@@ -135,7 +132,7 @@ const Filter = () => {
             placeholder="Search Area"
             id="area"
             tabIndex="-1"
-            className="areaSelect"
+            className={styles.selectInput}
             onChange={(e) => {
               setArea(e.target.value);
             }}
@@ -159,7 +156,7 @@ const Filter = () => {
             placeholder="Search Ingredient"
             id="ingredient"
             tabIndex="-1"
-            className="ingredientSelect"
+            className={styles.selectInput}
             onChange={(e) => {
               setIngredient(e.target.value);
             }}
@@ -177,12 +174,22 @@ const Filter = () => {
             ))}
           </select>
         </fieldset>
-        <button type="button" className="clearButton" onClick={handleClear}>
-          Clear
-        </button>
-        <button type="button" className="applyButton" onClick={handleApply}>
-          Apply
-        </button>
+        <div className={styles.ctaWrapper}>
+          <button
+            type="button"
+            className={styles.clearButton}
+            onClick={handleClear}
+          >
+            Clear
+          </button>
+          <button
+            type="button"
+            className={styles.applyButton}
+            onClick={handleApply}
+          >
+            Apply
+          </button>
+        </div>
       </form>
     </>
   );

@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import SliderCard from "./SliderCard";
+import Heading from "../Atoms/Heading/Heading";
 
 import "./SliderGrid.css";
 
@@ -41,7 +42,7 @@ const SliderGrid = ({ list, title }) => {
 
   return (
     <section className="sliderContainer">
-      <h2 className="sliderTitle">{title}</h2>
+      <Heading className="sliderTitle" title={title} as="h2" />
       <div className="sliderWrapper">
         <Slider {...settings}>
           {list.map((element, index) => (

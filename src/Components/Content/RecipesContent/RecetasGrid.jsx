@@ -1,6 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 import { RecipesContext } from "../../../Context/Context.js";
 import { useContext, useEffect, useState } from "react";
+import styles from "./RecetasGrid.module.css";
+import Heading from "../../Atoms/Heading/Heading.jsx";
 
 const RecetasGrid = () => {
   const context = useContext(RecipesContext);
@@ -69,14 +71,17 @@ const RecetasGrid = () => {
 
   return (
     <>
-      <p className="totalResults">Total results: {filteredRecipes.length}</p>
-      <ul className="recetasGrid">
+      <Heading as="h2" title="Results" className="" />
+      <p className={styles.totalResults}>
+        Total results: {filteredRecipes.length}
+      </p>
+      <ul className={styles.recetasGrid}>
         {filteredRecipes &&
           filteredRecipes.map((receta) => (
-            <li key={receta.idMeal} className="recetasCard">
+            <li key={receta.idMeal} className={styles.recetasCard}>
               <div>
                 <img src={receta.strMealThumb} alt={receta.strMeal} />
-                <h3 className="recetasCardTitle">{receta.strMeal}</h3>
+                <h3 className={styles.recetasCardTitle}>{receta.strMeal}</h3>
               </div>
             </li>
           ))}
