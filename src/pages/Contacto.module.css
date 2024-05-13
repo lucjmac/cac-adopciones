@@ -46,9 +46,13 @@
 
 .image_recipe{
     flex: 1;
-    max-width: 1000px;
-    width: 700px;
+    max-width: 220px;
+    width: 140px;
     margin-left: 10px;
+}
+
+.image_recipe img {
+    width: unset;
 }
 .form_group {
     margin-bottom: 20px;
@@ -89,4 +93,46 @@ button {
 
 button:hover {
     background-color: #99c2a0;
+}
+
+@media (max-width: 768px) {
+    .contacto_container  {
+        width: 100%;
+        padding: 16px; 
+        margin: 0;
+        margin-right: 200px;
+    }
+    .contacto_section {
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+
+     .image_recipe {
+        margin-right: 80px;
+    
+    }
+    .image_recipe img{
+
+    width: 280px;
+    }
+
+}
+@media (max-width: 480px) {
+    .contacto_container {
+        width: 100%;
+        padding: 10px 10px; 
+        margin: 0;
+    }
+    .contacto_section {
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+    .image_recipe {
+        margin-right: 300px;
+    
+    }
+    .image_recipe img{
+
+    width: 180px;
+    }
 }
