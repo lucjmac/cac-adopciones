@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./StepsCard.module.css";
+import Heading from "../../Atoms/Heading/Heading";
 
 const StepsCard = ({ detail, video }) => {
   const [iframeSource, setIframeSource] = useState("");
@@ -14,7 +15,7 @@ const StepsCard = ({ detail, video }) => {
 
   return (
     <div className={styles.stepCard}>
-      <h3 className={styles.stepCardTitle}>Steps</h3>
+      <Heading as="h3" title="Steps" className={styles.stepCardTitle} />
       <p className={styles.stepCardSteps}>{detail}</p>
 
       <div className={styles.videoWrapper}>

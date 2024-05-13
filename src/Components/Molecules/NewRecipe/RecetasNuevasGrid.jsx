@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import styles from "../NewRecipe/RecetasNuevas.module.css";
+import Heading from "../../Atoms/Heading/Heading";
 
 const RecetaNuevas = ({ tresRecetas }) => {
   return (
     <div className={styles.recetas_container}>
-      <h2 className={styles.titulo_recetas}>New Recipes</h2>
+      <Heading as="h2" title="New Recipes" className={styles.titulo_recetas} />
 
       <h3 className={styles.subtitulo_recetas}>
         Every week new recipes to guide you and achieve your tastes
