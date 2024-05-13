@@ -3,11 +3,15 @@ import { RecipesContext } from "../../../Context/Context.js";
 import { useContext, useEffect, useState } from "react";
 import styles from "./RecetasGrid.module.css";
 import Heading from "../../Atoms/Heading/Heading.jsx";
+import Pagination from "../../Molecules/Pagination/Pagination.jsx";
+
+const MAX_ITEMS = 15;
 
 const RecetasGrid = () => {
   const context = useContext(RecipesContext);
   const [searchParams] = useSearchParams();
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     if (searchParams.size > 0) return;
@@ -15,6 +19,7 @@ const RecetasGrid = () => {
   }, [context.recipes, searchParams]);
 
   useEffect(() => {
+    setCurrentIndex(0);
     setResults();
   }, [searchParams]);
 
@@ -77,19 +82,30 @@ const RecetasGrid = () => {
       </p>
       <ul className={styles.recetasGrid}>
         {filteredRecipes &&
-          filteredRecipes.map((receta) => (
-            <li key={receta.idMeal} className={styles.recetasCard}>
-              <div>
-                <img src={receta.strMealThumb} alt={receta.strMeal} />
-                <h3 className={styles.recetasCardTitle}>{receta.strMeal}</h3>
-              </div>
-            </li>
-          ))}
+          filteredRecipes
+            .slice(currentIndex * MAX_ITEMS, MAX_ITEMS * (currentIndex + 1))
+            .map((receta) => (
+              <li key={receta.idMeal} className={styles.recetasCard}>
+                <div>
+                  <img src={receta.strMealThumb} alt={receta.strMeal} />
+                  <h3 className={styles.recetasCardTitle}>{receta.strMeal}</h3>
+                </div>
+              </li>
+            ))}
 
-        {filteredRecipes && filteredRecipes.length === 0 && (
-          <p>No results found</p>
+        {filteredRecipes.length === 0 && (
+          <p className={styles.totalResults}>No results found</p>
         )}
       </ul>
+
+      {filteredRecipes && filteredRecipes.length > MAX_ITEMS && (
+        <Pagination
+          maxItems={MAX_ITEMS}
+          searchResults={filteredRecipes}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+      )}
     </>
   );
 };
