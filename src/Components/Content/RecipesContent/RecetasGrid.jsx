@@ -4,92 +4,88 @@ import { useContext, useEffect, useState } from "react";
 
 const RecetasGrid = () => {
   const context = useContext(RecipesContext);
-
   const [searchParams] = useSearchParams();
-  const querySearch = searchParams.get("search");
-  const queryCategory = searchParams.get("categories");
-  const queryArea = searchParams.get("area");
-  const queryIngredient = searchParams.get("ingredient");
   const [filteredRecipes, setFilteredRecipes] = useState([]);
 
   useEffect(() => {
-    if (filteredRecipes.length > 0) return;
-
+    if (searchParams.size > 0) return;
     setFilteredRecipes(context.recipes || []);
-  }, [context.recipes, filteredRecipes]);
+  }, [context.recipes, searchParams]);
 
   useEffect(() => {
-    if (!queryCategory || filteredRecipes.length === 0) return;
-    const selected = filteredRecipes.filter(
-      (recipe) => recipe.strCategory === queryCategory
-    );
-    setFilteredRecipes(selected);
-  }, [queryCategory]);
+    setResults();
+  }, [searchParams]);
 
-  useEffect(() => {
-    if (!queryArea || filteredRecipes.length === 0) return;
-    const selected = filteredRecipes.filter(
-      (recipe) => recipe.strArea === queryArea
-    );
-    setFilteredRecipes(selected);
-  }, [queryArea]);
+  const setResults = () => {
+    let results = context.recipes;
+    const category = searchParams.get("category");
+    const area = searchParams.get("area");
+    const ingredient = searchParams.get("ingredient");
+    const search = searchParams.get("search");
 
-  useEffect(() => {
-    if (!queryIngredient || filteredRecipes.length === 0) return;
-    const selected = filteredRecipes.filter((recipe) => {
-      const ingredients = Object.entries(recipe)
-        .filter((entry) => entry[0].includes("strIngredient"))
-        .map((entry) => entry[1])
-        .filter((result) => result !== "" && result !== null);
+    if (category) {
+      results = results.filter((recipe) => recipe.strCategory === category);
+    }
 
-      const hasIngredient = ingredients.some((ingredient) =>
-        ingredient.includes(queryIngredient)
-      );
+    if (area) {
+      results = results.filter((recipe) => recipe.strArea === area);
+    }
 
-      if (hasIngredient) {
-        return recipe;
-      }
-    });
+    if (ingredient) {
+      results = results.filter((recipe) => {
+        const ingredients = Object.entries(recipe)
+          .filter((entry) => entry[0].includes("strIngredient"))
+          .map((entry) => entry[1])
+          .filter((result) => result !== "" && result !== null);
 
-    setFilteredRecipes(selected);
-  }, [queryIngredient]);
+        const hasIngredient = ingredients.some((item) =>
+          item.includes(ingredient)
+        );
 
-  useEffect(() => {
-    if (!querySearch || filteredRecipes.length === 0) return;
+        if (hasIngredient) {
+          return recipe;
+        }
+      });
+    }
 
-    const selected = filteredRecipes.filter((recipe) => {
-      const propsWithValues = Object.entries(recipe)
-        .map((entry) => entry[1])
-        .filter((entry) => entry !== "" && entry !== " " && entry !== null);
+    if (search) {
+      results = results.filter((recipe) => {
+        const propsWithValues = Object.entries(recipe)
+          .map((entry) => entry[1])
+          .filter((entry) => entry !== "" && entry !== " " && entry !== null);
 
-      const hasIngredient = propsWithValues.some((prop) =>
-        prop.includes(querySearch)
-      );
+        const hasIngredient = propsWithValues.some((prop) =>
+          prop.includes(search)
+        );
 
-      if (hasIngredient) {
-        return recipe;
-      }
-    });
+        if (hasIngredient) {
+          return recipe;
+        }
+      });
+    }
 
-    setFilteredRecipes(selected);
-  }, [querySearch]);
-
-  console.log("filteredRecipes", filteredRecipes);
+    setFilteredRecipes(results);
+  };
 
   return (
-    <ul className="recetasGrid">
-      {filteredRecipes &&
-        filteredRecipes.map((receta) => (
-          <li key={receta.idMeal} className="recetasCard">
-            <div>
-              <img src={receta.strMealThumb} alt={receta.strMeal} />
-              <h3 className="recetasCardTitle">{receta.strMeal}</h3>
-            </div>
-          </li>
-        ))}
+    <>
+      <p className="totalResults">Total results: {filteredRecipes.length}</p>
+      <ul className="recetasGrid">
+        {filteredRecipes &&
+          filteredRecipes.map((receta) => (
+            <li key={receta.idMeal} className="recetasCard">
+              <div>
+                <img src={receta.strMealThumb} alt={receta.strMeal} />
+                <h3 className="recetasCardTitle">{receta.strMeal}</h3>
+              </div>
+            </li>
+          ))}
 
-      {filteredRecipes.length === 0 && <p>No results found</p>}
-    </ul>
+        {filteredRecipes && filteredRecipes.length === 0 && (
+          <p>No results found</p>
+        )}
+      </ul>
+    </>
   );
 };
 
