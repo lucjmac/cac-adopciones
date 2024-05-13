@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { RecipesContext } from "../../../Context/Context.js";
 import { useContext, useEffect, useState } from "react";
 import styles from "./RecetasGrid.module.css";
@@ -13,10 +13,12 @@ const RecetasGrid = () => {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const { recipes, loading } = context;
+
   useEffect(() => {
     if (searchParams.size > 0) return;
-    setFilteredRecipes(context.recipes || []);
-  }, [context.recipes, searchParams]);
+    setFilteredRecipes(recipes || []);
+  }, [recipes, searchParams]);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -24,7 +26,7 @@ const RecetasGrid = () => {
   }, [searchParams]);
 
   const setResults = () => {
-    let results = context.recipes;
+    let results = recipes;
     const category = searchParams.get("category");
     const area = searchParams.get("area");
     const ingredient = searchParams.get("ingredient");
@@ -86,10 +88,10 @@ const RecetasGrid = () => {
             .slice(currentIndex * MAX_ITEMS, MAX_ITEMS * (currentIndex + 1))
             .map((receta) => (
               <li key={receta.idMeal} className={styles.recetasCard}>
-                <div>
+                <NavLink to={`/receta/${receta.idMeal}`}>
                   <img src={receta.strMealThumb} alt={receta.strMeal} />
                   <h3 className={styles.recetasCardTitle}>{receta.strMeal}</h3>
-                </div>
+                </NavLink>
               </li>
             ))}
 
