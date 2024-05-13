@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import SliderCard from "./SliderCard";
 
-import "./SliderGrid.css";
+import "./SliderGrid.molecule.css";
 
 const SliderGrid = ({ list, title }) => {
   const settings = {
