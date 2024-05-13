@@ -3,12 +3,12 @@ import StepsCard from "../../Molecules/StepsCard/StepsCard";
 import styles from "./RecipeWrapper.module.css";
 
 const RecipeWrapper = ({ ingredients, result }) => {
-  const { strMeal, strInstructions } = result;
-
+  const { strMeal, strInstructions, strYoutube } = result;
+  console.log(result);
   return (
     <div className={styles.recipeDetailsWrapper}>
       <IngredientsCard ingredients={ingredients} mealTitle={strMeal} />
-      <StepsCard detail={strInstructions} />
+      <StepsCard detail={strInstructions} video={strYoutube} />
     </div>
   );
 };
