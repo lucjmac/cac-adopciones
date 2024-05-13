@@ -4,7 +4,7 @@ import Header from "./Components/Global/Header/Header";
 import Footer from "./Components/Global/Footer/Footer";
 import Inicio from "./pages/Inicio";
 import Contacto from "./pages/Contacto";
-import Recetas from "./pages/Recetas";
+import Recetas from "./pages/Recetas/Recetas";
 import Buscador from "./pages/Buscador";
 import DetalleReceta from "./pages/DetalleReceta";
 import Error404 from "./pages/Error404";
