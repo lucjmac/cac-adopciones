@@ -1,0 +1,27 @@
+.recipesContainer {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterContent {
+  flex: 1;
+}
+
+.recipesContent {
+  flex: 3;
+}
+
+@media screen and (min-width: 1024px) {
+  .recipesContainer {
+    flex-direction: row;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .filterContent {
+    max-width: 20%;
+  }
+}

@@ -1,0 +1,82 @@
+.contacto_container {
+  max-width: 1000px;
+  margin: 0 50px;
+  padding: 16px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.contacto_container h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 23px;
+  margin-bottom: 7px;
+}
+
+.linea {
+  width: 300px;
+  height: 2px;
+  background-color: #457b66;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.contacto_section {
+  background-color: #ffffff;
+  padding: 6px 15px 2px;
+  border-radius: 5px;
+  flex: 1;
+  margin-left: 130px;
+  margin-right: 40px;
+}
+.contacto_form {
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.image_recipe {
+  flex: 1;
+  max-width: 250px;
+  margin-left: 10px;
+}
+.form_group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.contacto input[type="email"],
+.contacto input[type="text"],
+textarea {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #457b66;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #99c2a0;
+}
