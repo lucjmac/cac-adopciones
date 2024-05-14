@@ -47,27 +47,24 @@
   margin-bottom: 20px;
 }
 
-label {
+.label {
   font-weight: bold;
   font-size: 17px;
 }
 
 .contacto input[type="email"],
 .contacto input[type="text"],
-textarea {
+.textarea {
   width: calc(100% - 22px);
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 16px;
-}
-
-textarea {
   resize: vertical;
 }
 
-button {
+.button {
   padding: 10px 20px;
   background-color: #457b66;
   color: #fff;
@@ -77,6 +74,6 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+.button:hover {
   background-color: #99c2a0;
 }

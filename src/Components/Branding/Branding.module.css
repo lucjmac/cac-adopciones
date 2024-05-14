@@ -6,17 +6,48 @@
 
 .title {
   align-items: end;
-  color: #333333;
   color: black;
   display: flex;
   flex-direction: column;
-  font-size: 38px;
   font-weight: 300;
   line-height: 1;
   margin: 0;
 }
 
 .firstLine {
-  font-size: 44px;
+  color: #333333;
+
   font-weight: 1000;
+}
+
+.title.large {
+  font-size: 53.2px;
+}
+
+.title.medium {
+  font-size: 38px;
+}
+
+.title.small {
+  font-size: 22.8px;
+}
+
+.title.extraSmall {
+  font-size: 15.2px;
+}
+
+.firstLine.large {
+  font-size: 61.6px;
+}
+
+.firstLine.medium {
+  font-size: 44px;
+}
+
+.firstLine.small {
+  font-size: 26.4px;
+}
+
+.firstLine.extraSmall {
+  font-size: 17.6px;
 }
