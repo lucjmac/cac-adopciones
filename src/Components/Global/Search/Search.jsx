@@ -4,9 +4,10 @@ import getResults from "../../../utils/getSearchResults";
 import SearchCard from "../../Molecules/SearchCard/SearchCard";
 import styles from "./Search.module.css";
 import Pagination from "../../Molecules/Pagination/Pagination";
-import Heading from "../../Atoms/Heading/Heading";
+import IngredientSearchInput from "../../Molecules/IngredientSearchInput/IngredientSearchInput";
 
 const MAX_ITEMS = 10;
+const SEARCH_PATHNAME = "/search";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -28,6 +29,10 @@ const Search = () => {
 
   return (
     <section className={styles.searchPage}>
+      <IngredientSearchInput
+        pathName={SEARCH_PATHNAME}
+        className={styles.searchPageInput}
+      />
       <h1 className={styles.searchPageMainTitle}>
         Results for: <span>{searchTerm}</span>
       </h1>
