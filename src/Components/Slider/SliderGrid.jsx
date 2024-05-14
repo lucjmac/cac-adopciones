@@ -4,7 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import SliderCard from "./SliderCard";
 
-import "./SliderGrid.molecule.css";
+import styles from "./SliderGrid.module.css";
+import "./SliderGrid.css";
 
 const SliderGrid = ({ list, title }) => {
   const settings = {
@@ -40,9 +41,9 @@ const SliderGrid = ({ list, title }) => {
   };
 
   return (
-    <section className="sliderContainer">
-      <h2 className="sliderTitle">{title}</h2>
-      <div className="sliderWrapper">
+    <section className={styles.sliderContainer}>
+      <h2 className={styles.sliderTitle}>{title}</h2>
+      <div className={styles.sliderWrapper}>
         <Slider {...settings}>
           {list.map((element, index) => (
             <SliderCard key={index} data={element} />

@@ -25,10 +25,6 @@
   justify-content: center;
 }
 
-.slick-track {
-  padding: 10px 0;
-}
-
 .sliderImg {
   width: 280px;
   height: 100%;
@@ -50,14 +46,6 @@
   padding: 10px 0;
   color: var(--colorGreen);
   font-weight: 400;
-}
-
-.slick-prev,
-.slick-next,
-.slick-prev:before,
-.slick-next:before {
-  z-index: 1;
-  color: var(--colorGreen);
 }
 
 /* 768px */
