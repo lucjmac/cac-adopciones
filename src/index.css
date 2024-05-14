@@ -8,11 +8,15 @@
 
 html {
   font-size: 62.5%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
