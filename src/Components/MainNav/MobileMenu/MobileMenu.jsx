@@ -15,7 +15,11 @@ const MobileMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <ul className={styles.mobileContainer}>
+    <ul
+      className={`${styles.mobileContainer} ${
+        isSearchPage ? styles.small : ""
+      }`}
+    >
       <MainNavItem className={styles.mobileBranding}>
         <NavLink to="/">
           <Branding size="S" />
