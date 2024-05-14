@@ -2,21 +2,21 @@ import { useState, useEffect, useContext } from "react";
 import { RecipesContext } from "../Context/Context";
 import Hero from "../Components/Hero/Hero";
 import SliderGrid from "../Components/Slider/SliderGrid";
-import RecetaNuevas from "../Components/Molecules/NewRecipe/RecetasNuevasGrid";
+
 
 const Inicio = () => {
   const context = useContext(RecipesContext);
-  
 
-  
+
+
   const maxRecepies = context.recipes.length - 7;
   const randomNumber = Math.floor(Math.random() * maxRecepies) + 1;
   const randomNewRecipes = context.recipes.slice(randomNumber, randomNumber + 10);
-    
-   
+
+
 
   const categories = context.categories || [];
-  
+
 
   const parsedCategories = categories.map((category) => {
     return {
