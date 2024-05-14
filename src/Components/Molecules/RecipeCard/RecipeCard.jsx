@@ -11,7 +11,7 @@ const RecipeCard = ({ details }) => {
     details;
 
   const areaLink = `/recetas?area=${strArea}`;
-  const categoryLink = `/recetas?area=${strCategory}`;
+  const categoryLink = `/recetas?category=${strCategory}`;
 
   return (
     <div className={styles.recipeCard}>
