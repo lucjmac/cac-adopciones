@@ -6,7 +6,7 @@ import SliderCard from "./SliderCard";
 
 import "./SliderGrid.css";
 
-const SliderGrid = ({ list, title }) => {
+const SliderGrid = ({ list, title, subtitle }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -42,6 +42,7 @@ const SliderGrid = ({ list, title }) => {
   return (
     <section className="sliderContainer">
       <h2 className="sliderTitle">{title}</h2>
+      {subtitle ? <h3>{ subtitle}</h3> : null}
       <div className="sliderWrapper">
         <Slider {...settings}>
           {list.map((element, index) => (
