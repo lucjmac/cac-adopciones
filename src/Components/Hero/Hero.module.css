@@ -9,6 +9,7 @@
   justify-content: center;
   min-height: 700px;
   width: 100vw;
+  height: calc(100vh - 135px);
 }
 
 .imgContainer {
@@ -22,7 +23,6 @@
   max-height: 378px;
   max-width: 700px;
   overflow: hidden;
-  width: 700px;
 }
 
 .wrapper {
@@ -73,4 +73,31 @@
   grid-row-end: 11;
   grid-row-start: 9;
   padding: 8px;
+}
+
+@media screen and (max-width: 850px) {
+  .wrapper {
+    max-width: 80%;
+  }
+
+  .imgContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .imgContainer img {
+    max-width: 100%;
+  }
+
+  .title {
+    grid-column-end: 3;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .title {
+    border-radius: initial;
+    grid-column-end: -1;
+  }
 }
