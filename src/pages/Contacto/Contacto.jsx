@@ -23,7 +23,9 @@ const Contacto = () => {
             <div className={styles.linea}></div>
             <form action="">
               <div className={styles.form_group}>
-                <label htmlFor="inputEmail">Email adress:</label>
+                <label htmlFor="inputEmail" className={styles.label}>
+                  Email adress:
+                </label>
                 <input
                   type="email"
                   name="correo"
@@ -31,7 +33,9 @@ const Contacto = () => {
                 />
               </div>
               <div className={styles.form_group}>
-                <label htmlFor="text">Subject:</label>
+                <label htmlFor="text" className={styles.label}>
+                  Subject:
+                </label>
                 <input
                   type="text"
                   name="asunto"
@@ -39,19 +43,18 @@ const Contacto = () => {
                 />
               </div>
               <div className={styles.form_group}>
-                <label htmlFor="text">Message:</label>
+                <label htmlFor="text" className={styles.label}>
+                  Message:
+                </label>
                 <textarea
                   name="mensaje"
                   rows="4"
                   placeholder="Enter your message here..."
+                  className={styles.textarea}
                 ></textarea>
               </div>
               <div className={styles.form_group}>
-                <button
-                  type="submit"
-                  name="enviar"
-                  className={styles.input_form}
-                >
+                <button type="submit" name="enviar" className={styles.button}>
                   Enviar
                 </button>
               </div>
