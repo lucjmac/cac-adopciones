@@ -27,7 +27,7 @@ const Inicio = () => {
   return (
     <>
       <Hero recetas={context.recipes} loading={context.loading} />
-      <SliderGrid list={parsedCategories} title="CATEGORIES" />
+      <SliderGrid list={parsedCategories} title="All Categories" />
       <RecetaNuevas tresRecetas={recetas} />
     </>
   );
