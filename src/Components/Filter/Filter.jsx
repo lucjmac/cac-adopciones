@@ -154,7 +154,9 @@ const Filter = () => {
       </div>
       <form className={styles.filterForm} onSubmit={(e) => e.preventDefault()}>
         <fieldset className={styles.search}>
-          <label htmlFor="advanced-search">Advanced Search</label>
+          <label htmlFor="advanced-search" className={styles.label}>
+            Advanced Search
+          </label>
           <input
             name="search"
             type="text"
@@ -165,7 +167,9 @@ const Filter = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="categories">Category</label>
+          <label htmlFor="categories" className={styles.label}>
+            Category
+          </label>
           <Select
             ref={(el) => (refSelect.current[0] = el)}
             onChange={(e) => {
@@ -176,7 +180,9 @@ const Filter = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="area">Area</label>
+          <label htmlFor="area" className={styles.label}>
+            Area
+          </label>
           <Select
             ref={(el) => (refSelect.current[1] = el)}
             onChange={(e) => {
@@ -188,7 +194,9 @@ const Filter = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="ingredient">Ingredient</label>
+          <label htmlFor="ingredient" className={styles.label}>
+            Ingredient
+          </label>
           <Select
             ref={(el) => (refSelect.current[2] = el)}
             onChange={(e) => {
@@ -200,18 +208,10 @@ const Filter = () => {
           />
         </fieldset>
         <div className={styles.ctaWrapper}>
-          <button
-            type="button"
-            className={styles.clearButton}
-            onClick={handleClear}
-          >
+          <button type="button" className={styles.button} onClick={handleClear}>
             Clear
           </button>
-          <button
-            type="button"
-            className={styles.applyButton}
-            onClick={handleApply}
-          >
+          <button type="button" className={styles.button} onClick={handleApply}>
             Apply
           </button>
         </div>
