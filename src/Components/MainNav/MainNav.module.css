@@ -11,9 +11,15 @@
 }
 
 .link {
+  background-color: #457b66;
   border-radius: 5px;
   border: none;
   color: #fff;
   cursor: pointer;
   font-size: 22px;
+  padding: 10px 20px;
+}
+
+.link:hover {
+  background-color: #457b668e;
 }
