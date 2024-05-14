@@ -14,6 +14,12 @@ const Filter = () => {
   const [ingredientItems, setIngredientItems] = useState([]);
   const [areaItems, setAreaItems] = useState([]);
   const [categoryItems, setCategoryItems] = useState([]);
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [category, setCategory] = useState(searchParams.get("category") || "");
+  const [area, setArea] = useState(searchParams.get("area") || "");
+  const [ingredient, setIngredient] = useState(
+    searchParams.get("ingredient") || ""
+  );
 
   const { categories, areas, ingredients } = context;
 
@@ -46,10 +52,27 @@ const Filter = () => {
     );
   }, [ingredients, areas, categories]);
 
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
-  const [area, setArea] = useState("");
-  const [ingredient, setIngredient] = useState("");
+  useEffect(() => {
+    if (refSelect.current.length === 0) return;
+
+    category &&
+      refSelect.current[0].setValue({
+        value: category.toLocaleLowerCase(),
+        label: category,
+      });
+
+    area &&
+      refSelect.current[1].setValue({
+        value: area.toLocaleLowerCase(),
+        label: area,
+      });
+
+    ingredient &&
+      refSelect.current[2].setValue({
+        value: ingredient.toLocaleLowerCase(),
+        label: ingredient,
+      });
+  }, [refSelect.current]);
 
   const handleApply = () => {
     if (search) {
@@ -151,27 +174,6 @@ const Filter = () => {
             isSearchable={true}
             options={categoryItems}
           />
-          {/* <select
-            name="categories"
-            multiple
-            placeholder="Search Category"
-            id="categories"
-            tabIndex="-1"
-            className={styles.selectInput}
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-          >
-            {categories.map((itemCategory) => (
-              <option
-                key={itemCategory.strCategory}
-                value={itemCategory.strCategory}
-                selected={category && category === itemCategory.strCategory}
-              >
-                {itemCategory.strCategory}
-              </option>
-            ))}
-          </select> */}
         </fieldset>
         <fieldset>
           <label htmlFor="area">Area</label>

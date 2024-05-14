@@ -20,7 +20,7 @@ const Inicio = () => {
     return {
       img: category.strCategoryThumb,
       label: category.strCategory,
-      to: `/recetas?categories=${category.strCategory}`,
+      to: `/recetas?category=${category.strCategory}`,
     };
   });
 
