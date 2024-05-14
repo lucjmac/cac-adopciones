@@ -3,7 +3,7 @@ import get from "../../../utils/conexionAPI.js";
 import { useState, useEffect } from "react";
 import styles from "./SurpriseMe.module.css";
 
-const SurpriseMe = () => {
+const SurpriseMe = ({ overrideClass }) => {
   const [recetas, setRecetas] = useState([]);
 
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const SurpriseMe = () => {
 
   return (
     <button
-      className={styles.button}
+      className={overrideClass || styles.button}
       onClick={() =>
         navigate(
           `/receta/${recetas[Math.floor(Math.random() * recetas.length)]}`
