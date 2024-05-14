@@ -6,7 +6,15 @@
   color: var(--colorGreen) !important;
 }
 
-.slick-arrow.slick-prev,
-.slick-arrow.slick-prev:before {
-  left: -60px;
+
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-slide > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
