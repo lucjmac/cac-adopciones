@@ -41,10 +41,10 @@ const SliderGrid = ({ list, title, subtitle }) => {
   };
 
   return (
-    <section className="sliderContainer">
-      <h2 className="sliderTitle">{title}</h2>
-      {subtitle ? <h3>{ subtitle}</h3> : null}
-      <div className="sliderWrapper">
+    <section className={styles.sliderContainer}>
+      <h2 className={styles.sliderTitle}>{title}</h2>
+      {subtitle ? <h3 className={styles.sliderSubtitle}>{ subtitle}</h3> : null}
+      <div className={styles.sliderWrapper}>
         <Slider {...settings}>
           {list.map((element, index) => (
             <SliderCard key={index} data={element} />
