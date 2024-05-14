@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useSearchParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import styles from "./Search.module.css";
 
 const Search = ({ reversed }) => {
   const [searchParam, setSearchParam] = useState("");
-  const [searchParams] = useSearchParams();
-  const defaultSearch = searchParams.get("search");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,6 +12,11 @@ const Search = ({ reversed }) => {
     const search = elements.get("search");
     setSearchParam(search);
     event.target.reset();
+  };
+
+  const handleBlur = (event) => {
+    event.preventDefault();
+    event.target.value = "";
   };
 
   let inputContainerClassName = reversed
@@ -33,7 +36,7 @@ const Search = ({ reversed }) => {
         <span className={inputContainerClassName}>
           <CiSearch />
           <input
-            defaultValue={defaultSearch}
+            onBlur={handleBlur}
             name="search"
             placeholder="Search..."
             className={styles.input}
