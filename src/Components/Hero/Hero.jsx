@@ -24,11 +24,7 @@ const Hero = ({ recetas = [], loading }) => {
           <div className={styles.content}>
             <div className={styles.imgContainer}>
               <picture>
-                <img
-                  src={receta?.strMealThumb}
-                  alt={receta?.strMeal}
-                  width={700}
-                />
+                <img src={receta?.strMealThumb} alt={receta?.strMeal} />
               </picture>
             </div>
             <h1 className={styles.title}>Recipe of the day</h1>
