@@ -20,9 +20,11 @@ const Contacto = () => {
         <div className={styles.contacto}>
             <div className={styles.contacto_container}>
                     <section className={styles.contacto_section}>
-                        <div className={styles.contacto_form}>
-                            <h2>CONTACT US!</h2>
-                            <div className={ styles.linea}></div>
+                    <div className={styles.contacto_form}>
+
+                        <h2>CONTACT US!</h2>
+                            <div className={styles.linea}></div>
+                    
                                 <form action="">
                                     <div className={styles.form_group}>
                                         <label htmlFor="inputEmail">Email adress:</label>

@@ -95,7 +95,7 @@ button:hover {
     background-color: #99c2a0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 790px) {
     .contacto_container  {
         width: 100%;
         padding: 16px; 
@@ -117,22 +117,45 @@ button:hover {
     }
 
 }
-@media (max-width: 480px) {
+
+@media screen and (max-width: 900px){
+    .image_recipe img{
+
+    display: flex;
+    }
+}
+ @media screen and (max-width: 485px) {
     .contacto_container {
-        width: 100%;
-        padding: 10px 10px; 
+        
+        padding: 20px;
+        
         margin: 0;
     }
     .contacto_section {
         margin-left: 0; 
         margin-right: 0; 
     }
-    .image_recipe {
-        margin-right: 300px;
-    
+
+    .contacto_form input,
+    .contacto_form textarea{
+    box-sizing: border-box; 
+    margin-bottom: 15px; 
+  }
+
+  .form_group {
+     width: 120%;
+     box-sizing: border-box;
+  }
+
+    .linea{
+        margin-left: 70px;
+    }
+
+    .contacto h2{
+        margin-left: 50px;
     }
     .image_recipe img{
 
-    width: 180px;
+    display: none;
     }
 }
