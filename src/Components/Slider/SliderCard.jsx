@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+import styles from "./SliderGrid.module.css";
 const SliderCard = ({ data }) => {
   return (
     <div>
-      <div className="sliderCard">
+      <div className={styles.sliderCard}>
         <Link to={data.to}>
-          <div className="sliderImgWrapper">
-            <img className="sliderImg" src={data.img} alt={data.label} />
+          <div className={styles.sliderImgWrapper}>
+            <img className={styles.sliderImg} src={data.img} alt={data.label} />
           </div>
-          <h3 className="SliderImgTitle">{data.label}</h3>
+          <h3 className={styles.SliderImgTitle}>{data.label}</h3>
         </Link>
       </div>
     </div>

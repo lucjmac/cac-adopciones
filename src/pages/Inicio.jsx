@@ -20,14 +20,14 @@ const Inicio = () => {
     return {
       img: category.strCategoryThumb,
       label: category.strCategory,
-      to: `/recetas?categories=${category.strCategory}`,
+      to: `/recetas?category=${category.strCategory}`,
     };
   });
 
   return (
     <>
       <Hero recetas={context.recipes} loading={context.loading} />
-      <SliderGrid list={parsedCategories} title="CATEGORIES" />
+      <SliderGrid list={parsedCategories} title="All Categories" />
       <RecetaNuevas tresRecetas={recetas} />
     </>
   );
