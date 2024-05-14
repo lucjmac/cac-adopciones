@@ -101,6 +101,10 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
+.mobileContainer.small {
+  grid-template-rows: repeat(1, 1fr);
+}
+
 .mobileMenuWrapper {
   align-self: center;
   display: flex;
