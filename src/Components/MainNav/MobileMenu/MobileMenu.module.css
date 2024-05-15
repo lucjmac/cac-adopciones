@@ -11,10 +11,6 @@
   transition: color 0.3s ease;
 }
 
-.menuToggle a:hover {
-  color: tomato;
-}
-
 .menuToggle input {
   -webkit-touch-callout: none;
   cursor: pointer;
