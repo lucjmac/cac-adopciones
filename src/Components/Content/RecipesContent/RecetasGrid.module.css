@@ -11,8 +11,6 @@
   justify-content: center;
 }
 
-
-
 .recetasGrid img {
   width: 100%;
   display: block;
@@ -21,11 +19,12 @@
 
 .recetasCardTitle {
   text-align: center;
+  text-transform: uppercase;
   color: var(--colorWhite);
   background-color: var(--colorGreen);
   max-height: 60px;
   min-height: 30px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
