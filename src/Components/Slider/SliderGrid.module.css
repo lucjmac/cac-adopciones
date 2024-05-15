@@ -83,10 +83,16 @@
   .SliderImgTitle {
     padding: 5px 0;
   }
+
+  .sliderSubtitle {
+    margin-left: 90px!important; 
+    font-size: 14px;   
+       
+  }
 }
 
 /* 480px */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 485px) {
   .sliderTitle {
     font-size: 1.2em;
   }
@@ -94,4 +100,10 @@
   .SliderImgTitle {
     padding: 3px 0;
   }
+
+   .sliderContainer .sliderSubtitle {
+    margin-left: 25px !important; 
+    font-size: 14px;             
+  }
+
 }
