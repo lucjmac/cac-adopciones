@@ -11,7 +11,7 @@ import styles from "./MobileMenu.module.css";
 const MobileMenu = () => {
   const { pathname } = useLocation();
   const isSearchPage =
-    pathname === "/search" || pathcname === "/worldrecipes/search";
+    pathname === "/search" || pathname === "/worldrecipes/search";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
