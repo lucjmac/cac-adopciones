@@ -9,7 +9,8 @@ import styles from "./DesktopMenu.module.css";
 
 const DesktopMenu = () => {
   const { pathname } = useLocation();
-  const isSearchPage = pathname === "/search";
+  const isSearchPage =
+    pathname === "/search" || pathname === "/worldrecipes/search";
 
   return (
     <ul className={styles.container}>
