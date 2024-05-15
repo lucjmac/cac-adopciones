@@ -36,6 +36,9 @@ const Search = () => {
       <h1 className={styles.searchPageMainTitle}>
         Results for: <span>{searchTerm}</span>
       </h1>
+      <p className={styles.totalResults}>
+        Total results: {searchResults.length}
+      </p>
       <ul className={styles.searchPageCardsWrapper}>
         {searchResults ? (
           searchResults
