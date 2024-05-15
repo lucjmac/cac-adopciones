@@ -1,3 +1,4 @@
+import logo from "../../../assets/logo.svg";
 import styles from "./Branding.module.css";
 
 const Branding = ({ size = "M" }) => {
@@ -30,7 +31,11 @@ const Branding = ({ size = "M" }) => {
   return (
     <div className={styles.container}>
       <picture>
-        <img src="../../../assets/logo.svg" alt="Logo" height={imageHeight} />
+        <img
+          src={logo || "../../../assets/logo.svg"}
+          alt="Logo"
+          height={imageHeight}
+        />
       </picture>
       <h1 className={`${styles.title} ${classModifier}`}>
         <span className={`${styles.firstLine} ${classModifier}`}>World</span>
