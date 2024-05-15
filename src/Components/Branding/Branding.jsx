@@ -31,11 +31,7 @@ const Branding = ({ size = "M" }) => {
   return (
     <div className={styles.container}>
       <picture>
-        <img
-          src={logo || "../../../public/logo.svg"}
-          alt="Logo"
-          height={imageHeight}
-        />
+        <img src={"../../../public/logo.svg"} alt="Logo" height={imageHeight} />
       </picture>
       <h1 className={`${styles.title} ${classModifier}`}>
         <span className={`${styles.firstLine} ${classModifier}`}>World</span>
