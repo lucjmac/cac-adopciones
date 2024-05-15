@@ -1,4 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 
 import Header from "./Components/Global/Header/Header";
 import Footer from "./Components/Global/Footer/Footer";
@@ -13,6 +20,16 @@ import { RecipesContext } from "./Context/Context";
 import { useEffect, useState } from "react";
 import { getAllResults } from "./utils/getSearchResults";
 import get from "./utils/conexionAPI";
+
+const RecetaWrapper = () => {
+  const { recetaId } = useParams();
+  return <Navigate to={`/worldrecipes/receta/${recetaId}`} />;
+};
+
+const KeepSearchParamsNavigate = ({ to }) => {
+  const searchParams = useLocation().search;
+  return <Navigate to={to + searchParams} />;
+};
 
 const App = () => {
   const [recetas, setRecetas] = useState([]);
@@ -76,20 +93,17 @@ const App = () => {
 
             <Route
               path="/contacto"
-              element={<Navigate to="/worldrecipes/contacto" />}
+              element={<KeepSearchParamsNavigate to="/worldrecipes/contacto" />}
             ></Route>
             <Route
               path="/recetas"
-              element={<Navigate to="/worldrecipes/recetas" />}
+              element={<KeepSearchParamsNavigate to="/worldrecipes/recetas" />}
             ></Route>
             <Route
               path="/search"
-              element={<Navigate to="/worldrecipes/search" />}
+              element={<KeepSearchParamsNavigate to="/worldrecipes/search" />}
             ></Route>
-            <Route
-              path="/receta/:recetaId"
-              element={<Navigate to="/worldrecipes/receta/:recetaId" />}
-            ></Route>
+            <Route path="/receta/:recetaId" element={<RecetaWrapper />}></Route>
             <Route
               path="/recetas/:id"
               element={<Navigate to="/worldrecipes/recetas/:id" />}
