@@ -8,7 +8,7 @@ import Heading from "../Atoms/Heading/Heading";
 import styles from "./SliderGrid.module.css";
 import "./SliderGrid.css";
 
-const SliderGrid = ({ list, title }) => {
+const SliderGrid = ({ list, title, subtitle }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -43,7 +43,8 @@ const SliderGrid = ({ list, title }) => {
 
   return (
     <section className={styles.sliderContainer}>
-      <Heading className={styles.sliderTitle} title={title} as="h2" />
+      {title ? <Heading className={styles.sliderTitle} title={title} as="h2" /> : null}
+      {subtitle ? <h3 className={styles.sliderSubtitle}>{subtitle}</h3> : null}
       <div className={styles.sliderWrapper}>
         <Slider {...settings}>
           {list.map((element, index) => (

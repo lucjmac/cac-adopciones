@@ -1,0 +1,161 @@
+.contacto_container {
+    max-width: 1000px;
+    margin: 0 50px;
+    padding: 16px 0px;
+    display: flex;
+    align-items: center;
+    
+
+}
+
+.contacto_container h2 {
+   flex: 1;
+  text-align: center;
+  font-size: 23px;
+  margin-bottom: 7px;
+}
+
+.linea {
+    width: 300px; 
+    height: 2px; 
+    background-color: #457b66; 
+    margin: auto; 
+    margin-bottom: 40px;
+}
+
+
+.contacto_section {
+
+    background-color: #ffffff;
+    padding: 6px 15px 2px;
+    border-radius: 5px;
+    flex: 1;
+    margin-left: 130px;
+    margin-right: 40px;
+    
+
+}
+.contacto_form {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.image_recipe{
+    flex: 1;
+    max-width: 220px;
+    width: 140px;
+    margin-left: 10px;
+}
+
+.image_recipe img {
+    width: unset;
+}
+.form_group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+.contacto input[type="email"],
+.contacto input[type="text"],
+
+textarea {
+    width:  calc(100% - 22px);
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #457b66;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #99c2a0;
+}
+
+@media (max-width: 790px) {
+    .contacto_container  {
+        width: 100%;
+        padding: 16px; 
+        margin: 0;
+        margin-right: 200px;
+    }
+    .contacto_section {
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+
+     .image_recipe {
+        margin-right: 80px;
+    
+    }
+    .image_recipe img{
+
+    width: 280px;
+    }
+
+}
+
+@media screen and (max-width: 900px){
+    .image_recipe img{
+
+    display: flex;
+    }
+}
+ @media screen and (max-width: 485px) {
+    .contacto_container {
+        
+        padding: 20px;
+        
+        margin: 0;
+    }
+    .contacto_section {
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+
+    .contacto_form input,
+    .contacto_form textarea{
+    box-sizing: border-box; 
+    margin-bottom: 15px; 
+  }
+
+  .form_group {
+     width: 120%;
+     box-sizing: border-box;
+  }
+
+    .linea{
+        margin-left: 70px;
+    }
+
+    .contacto h2{
+        margin-left: 50px;
+    }
+    .image_recipe img{
+
+    display: none;
+    }
+}
