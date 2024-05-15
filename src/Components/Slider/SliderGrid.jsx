@@ -43,7 +43,7 @@ const SliderGrid = ({ list, title, subtitle }) => {
 
   return (
     <section className={styles.sliderContainer}>
-      <Heading className={styles.sliderTitle} title={title} as="h2" />
+      {title ? <Heading className={styles.sliderTitle} title={title} as="h2" /> : null}
       {subtitle ? <h3 className={styles.sliderSubtitle}>{subtitle}</h3> : null}
       <div className={styles.sliderWrapper}>
         <Slider {...settings}>
