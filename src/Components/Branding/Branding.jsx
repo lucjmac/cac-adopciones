@@ -1,4 +1,3 @@
-import logo from "../../../public/logo.svg";
 import styles from "./Branding.module.css";
 
 const Branding = ({ size = "M" }) => {
