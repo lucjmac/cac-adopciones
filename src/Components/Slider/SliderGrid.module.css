@@ -53,23 +53,30 @@
     }
 }
 
+/* 768px */
+@media screen and (max-width: 768px) {
+    .sliderImgWrapper {
+        width: 200px;
+    }
+
+    .sliderContainer {
+        margin: 40px 20px 60px 20px;
+    }
+
+    .sliderTitle {
+        margin: 0 auto 20px auto;
+        text-align: center;
+    }
+}
+
 /* 600px */
 @media screen and (max-width: 600px) {
     .sliderContainer {
         margin: 40px 20px 60px 20px;
     }
-    .sliderTitle {
-        margin: 0 auto 20px auto;
-        text-align: center;
-        font-size: 1.5em;
-    }
 
     .sliderCard {
         max-width: 100%;
-    }
-
-    .sliderImg {
-        width: 100%;
     }
 
     .SliderImgTitle {
