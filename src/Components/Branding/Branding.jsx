@@ -1,4 +1,4 @@
-import logo from "../../../assets/logo.svg";
+import logo from "../../../public/logo.svg";
 import styles from "./Branding.module.css";
 
 const Branding = ({ size = "M" }) => {
@@ -32,7 +32,7 @@ const Branding = ({ size = "M" }) => {
     <div className={styles.container}>
       <picture>
         <img
-          src={logo || "../../../assets/logo.svg"}
+          src={logo || "../../../public/logo.svg"}
           alt="Logo"
           height={imageHeight}
         />
