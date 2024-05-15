@@ -61,7 +61,7 @@ const App = () => {
           <Header />
 
           <Routes>
-            <Route path="/" element={<Inicio />}></Route>
+            <Route path="/worldrecipes" element={<Inicio />}></Route>
             <Route path="/contacto" element={<Contacto />}></Route>
             <Route path="/recetas" element={<Recetas />}></Route>
             <Route path="/search" element={<Buscador />}></Route>
