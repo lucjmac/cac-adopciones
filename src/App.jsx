@@ -82,10 +82,6 @@ const App = () => {
               path="/worldrecipes/*"
               element={<Navigate to="/worldrecipes/error404" />}
             ></Route>
-            <Route
-              path="/*"
-              element={<Navigate to="/worldrecipes/error404" />}
-            ></Route>
           </Routes>
 
           <Footer />
