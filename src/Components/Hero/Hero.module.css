@@ -100,4 +100,18 @@
     border-radius: initial;
     grid-column-end: -1;
   }
+  .imgContainer {
+    height: initial;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .title {
+    grid-row-end: 7;
+    grid-row-start: 6;
+  }
+
+  .name {
+    font-size: 24px;
+  }
 }
