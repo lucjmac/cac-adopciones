@@ -68,6 +68,7 @@ const App = () => {
             <Route path="/receta/:recetaId" element={<Receta />}></Route>
             <Route path="/recetas/:id" element={<DetalleReceta />}></Route>
             <Route path="/error404" element={<Error404 />}></Route>
+            <Route path="/worldrecipes/" element={<Navigate to="/" />}></Route>
             <Route path="/*" element={<Navigate to="/error404" />}></Route>
           </Routes>
 
