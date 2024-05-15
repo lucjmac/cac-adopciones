@@ -16,11 +16,12 @@ const Pagination = ({
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setCurrentIndex(page);
   };
+
   return (
     <div className={styles.pagination}>
       <button
         disabled={currentIndex === 0}
-        className={styles.backButton}
+        className={`${styles.backButton} ${styles.navButton}`}
         onClick={() => handlePagination(-1)}
       >
         <GrPrevious />
@@ -31,7 +32,9 @@ const Pagination = ({
         }).map((_, index) => (
           <button
             key={index}
-            className={styles.pageButtons}
+            className={`${styles.pageButtons}  ${styles.navButton} ${
+              index === currentIndex && styles.active
+            }`}
             onClick={() => handleNumberPagination(index)}
           >
             {index + 1}
@@ -42,7 +45,7 @@ const Pagination = ({
         disabled={
           currentIndex === Math.ceil(searchResults.length / maxItems) - 1
         }
-        className={styles.nextButton}
+        className={`${styles.nextButton}  ${styles.navButton} `}
         onClick={() => handlePagination(1)}
       >
         <GrNext />

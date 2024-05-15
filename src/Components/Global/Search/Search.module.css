@@ -16,11 +16,17 @@
   font-size: 1.5em;
   font-weight: 800;
   color: var(--colorGreen);
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .searchPageMainTitle span {
   color: var(--colorYellow);
+}
+
+.totalResults {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 1rem;
 }
 
 .searchPageCardsWrapper {
@@ -47,6 +53,11 @@
   .searchPageMainTitle {
     font-size: 2.5em;
     padding: 2rem;
+  }
+
+  .totalResults {
+    font-size: 20px;
+    padding: 0 2rem 2rem;
   }
 
   .searchPageCardsWrapper {
