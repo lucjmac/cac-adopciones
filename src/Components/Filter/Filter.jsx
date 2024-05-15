@@ -1,23 +1,78 @@
-import { useState, useContext } from "react";
-import {
-  useSearchParams,
-  useNavigate,
-  createSearchParams,
-} from "react-router-dom";
+import { useState, useContext, useEffect, useRef } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { RecipesContext } from "../../Context/Context.js";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import Heading from "../Atoms/Heading/Heading.jsx";
+import Select from "react-select";
+import styles from "./Filter.module.css";
 
 const Filter = () => {
   const context = useContext(RecipesContext);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const refSelect = useRef([]);
+  const [ingredientItems, setIngredientItems] = useState([]);
+  const [areaItems, setAreaItems] = useState([]);
+  const [categoryItems, setCategoryItems] = useState([]);
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+  const [category, setCategory] = useState(searchParams.get("category") || "");
+  const [area, setArea] = useState(searchParams.get("area") || "");
+  const [ingredient, setIngredient] = useState(
+    searchParams.get("ingredient") || ""
+  );
 
   const { categories, areas, ingredients } = context;
 
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
-  const [area, setArea] = useState("");
-  const [ingredient, setIngredient] = useState("");
+  useEffect(() => {
+    setIngredientItems(
+      ingredients.map((item) => {
+        return {
+          value: item.strIngredient.toLowerCase(),
+          label: item.strIngredient,
+        };
+      })
+    );
+
+    setAreaItems(
+      areas.map((item) => {
+        return {
+          value: item.strArea.toLowerCase(),
+          label: item.strArea,
+        };
+      })
+    );
+
+    setCategoryItems(
+      categories.map((item) => {
+        return {
+          value: item.strCategory.toLowerCase(),
+          label: item.strCategory,
+        };
+      })
+    );
+  }, [ingredients, areas, categories]);
+
+  useEffect(() => {
+    if (refSelect.current.length === 0) return;
+
+    category &&
+      refSelect.current[0].setValue({
+        value: category.toLocaleLowerCase(),
+        label: category,
+      });
+
+    area &&
+      refSelect.current[1].setValue({
+        value: area.toLocaleLowerCase(),
+        label: area,
+      });
+
+    ingredient &&
+      refSelect.current[2].setValue({
+        value: ingredient.toLocaleLowerCase(),
+        label: ingredient,
+      });
+  }, [refSelect.current]);
 
   const handleApply = () => {
     if (search) {
@@ -27,7 +82,6 @@ const Filter = () => {
       });
     }
     if (category) {
-      console.log("entra aca");
       setSearchParams((searchParams) => {
         searchParams.set("category", category);
         return searchParams;
@@ -52,6 +106,7 @@ const Filter = () => {
     setCategory("");
     setArea("");
     setIngredient("");
+    refSelect.current.forEach((select) => select.setValue(""));
     navigate(`/recetas`);
   };
 
@@ -61,28 +116,34 @@ const Filter = () => {
     const setQueries = [setSearch, setCategory, setArea, setIngredient];
     setQueries[index]("");
 
-    const params = window.location.search
-      .split("?")[1]
-      .split("&")
-      .filter((item) => !item.includes(queries[index]))
-      .join("&");
-
-    navigate(`/recetas?${params}`, {
-      state: { deleted: queries[index], value: queriesValues[index] },
+    refSelect.current.forEach((select, selIndex) => {
+      if (selIndex + 1 === index) select.setValue("");
     });
+
+    if (window.location.search) {
+      const params = window.location.search
+        .split("?")[1]
+        .split("&")
+        .filter((item) => !item.includes(queries[index]))
+        .join("&");
+
+      navigate(`/recetas?${params}`, {
+        state: { deleted: queries[index], value: queriesValues[index] },
+      });
+    }
   };
 
   return (
-    <>
-      <h1>Filters</h1>
-      <div className="filterTags">
+    <div>
+      <Heading as="h1" title="Filters" className="" />
+      <div className={styles.filterTags}>
         {[search, category, area, ingredient].map((tag, index) => {
-          if (tag === "") return;
+          if (tag === "" || tag === null || tag === undefined) return;
           return (
             <div key={index}>
               <p>{tag}</p>
               <button
-                className="tagClearButton"
+                className={styles.tagClearButton}
                 onClick={() => clearSearchParam(index)}
               >
                 <IoCloseCircleOutline />
@@ -91,100 +152,71 @@ const Filter = () => {
           );
         })}
       </div>
-      <form className="filterForm" onSubmit={(e) => e.preventDefault()}>
-        <fieldset>
-          <label htmlFor="advanced-search">Advanced Search</label>
+      <form className={styles.filterForm} onSubmit={(e) => e.preventDefault()}>
+        <fieldset className={styles.search}>
+          <label htmlFor="advanced-search" className={styles.label}>
+            Advanced Search
+          </label>
           <input
             name="search"
             type="text"
             placeholder="Search by Category, Area or Ingredient"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="searchInput"
+            className={styles.searchInput}
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="categories">Category</label>
-          <select
-            name="categories"
-            multiple
-            placeholder="Search Category"
-            id="categories"
-            tabIndex="-1"
-            className="categorySelect"
+          <label htmlFor="categories" className={styles.label}>
+            Category
+          </label>
+          <Select
+            ref={(el) => (refSelect.current[0] = el)}
             onChange={(e) => {
-              setCategory(e.target.value);
+              setCategory(e.label);
             }}
-          >
-            {categories.map((itemCategory) => (
-              <option
-                key={itemCategory.strCategory}
-                value={itemCategory.strCategory}
-                selected={category && category === itemCategory.strCategory}
-              >
-                {itemCategory.strCategory}
-              </option>
-            ))}
-          </select>
+            isSearchable={true}
+            options={categoryItems}
+          />
         </fieldset>
         <fieldset>
-          <label htmlFor="area">Area</label>
-          <select
-            name="area"
-            multiple
-            placeholder="Search Area"
-            id="area"
-            tabIndex="-1"
-            className="areaSelect"
+          <label htmlFor="area" className={styles.label}>
+            Area
+          </label>
+          <Select
+            ref={(el) => (refSelect.current[1] = el)}
             onChange={(e) => {
-              setArea(e.target.value);
+              setArea(e.label);
             }}
-          >
-            {areas.map((itemArea) => (
-              <option
-                key={itemArea.strArea}
-                value={itemArea.strArea}
-                selected={area && area === itemArea.strArea}
-              >
-                {itemArea.strArea}
-              </option>
-            ))}
-          </select>
+            isClearable={true}
+            isSearchable={true}
+            options={areaItems}
+          />
         </fieldset>
         <fieldset>
-          <label htmlFor="ingredient">Ingredient</label>
-          <select
-            name="ingredient"
-            multiple
-            placeholder="Search Ingredient"
-            id="ingredient"
-            tabIndex="-1"
-            className="ingredientSelect"
+          <label htmlFor="ingredient" className={styles.label}>
+            Ingredient
+          </label>
+          <Select
+            ref={(el) => (refSelect.current[2] = el)}
             onChange={(e) => {
-              setIngredient(e.target.value);
+              setIngredient(e.label);
             }}
-          >
-            {ingredients.map((itemIngredient) => (
-              <option
-                key={`ingredient_${itemIngredient.strIngredient}`}
-                value={itemIngredient.strIngredient}
-                selected={
-                  ingredient && ingredient === itemIngredient.strIngredient
-                }
-              >
-                {itemIngredient.strIngredient}
-              </option>
-            ))}
-          </select>
+            isClearable={true}
+            isSearchable={true}
+            options={ingredientItems}
+          />
         </fieldset>
-        <button type="button" className="clearButton" onClick={handleClear}>
-          Clear
-        </button>
-        <button type="button" className="applyButton" onClick={handleApply}>
-          Apply
-        </button>
+        <div className={styles.ctaWrapper}>
+          <button type="button" className={styles.button} onClick={handleClear}>
+            Clear
+          </button>
+          <button type="button" className={styles.button} onClick={handleApply}>
+            Apply
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 

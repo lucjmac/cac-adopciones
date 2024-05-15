@@ -1,48 +1,20 @@
-import { useState } from "react";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
+import { NavLink } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
 
 import styles from "./Footer.module.css";
+import IngredientSearchInput from "../../Molecules/IngredientSearchInput/IngredientSearchInput";
 
 const SEARCH_PATHNAME = "/search";
 
 const Footer = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (location.pathname === SEARCH_PATHNAME) {
-      window.scrollTo({ top: 0, lef: 0, behavior: "smooth" });
-    }
-
-    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
-    setSearchTerm("");
-  };
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
   return (
     <footer>
       <div className={styles.footerCol}>
-        <form className={styles.footerSearch} onSubmit={handleSubmit}>
-          <div className={styles.icon}>
-            <CiSearch />
-          </div>
-          <input
-            className={styles.searchInput}
-            type="text"
-            placeholder="Search by main ingredient"
-            required
-            value={searchTerm}
-            onChange={handleChange}
-          />
-        </form>
+        <IngredientSearchInput
+          pathName={SEARCH_PATHNAME}
+          className={styles.footerSearch}
+        />
+
         <div className={`${styles.footerSocialNav} ${styles.footerAnchors}`}>
           <ul>
             <li>

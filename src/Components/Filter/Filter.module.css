@@ -1,0 +1,76 @@
+.filterTags {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filterTags div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  border: 1px solid var(--colorGreen);
+  width: max-content;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 3px;
+}
+
+.tagClearButton {
+  padding: 0;
+  background-color: transparent;
+  color: currentColor;
+  transition: color 0.3s ease;
+  border: none;
+}
+
+.tagClearButton:hover {
+  background-color: transparent;
+  color: var(--colorYellow);
+}
+
+.filterForm fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.filterForm fieldset label {
+  color: var(--colorGreen);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.search input {
+  padding: 10px;
+}
+
+.ctaWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #457b66;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #99c2a0;
+}
+
+@media screen and (min-width: 1024px) {
+}

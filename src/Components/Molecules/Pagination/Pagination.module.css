@@ -1,0 +1,28 @@
+.pagination {
+  display: flex;
+  gap: 7px;
+  margin: 1rem auto 3rem;
+  width: max-content;
+}
+
+.pageButtons {
+  margin: 0 0.2rem;
+}
+
+.pageButtons,
+.nextButton,
+.backButton {
+  padding: 10px 20px;
+  background-color: #457b66;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pageButtons:hover,
+.nextButton:hover,
+.backButton:hover {
+  background-color: #99c2a0;
+}

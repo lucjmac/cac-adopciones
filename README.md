@@ -11,3 +11,7 @@ Currently, two official plugins are available:
 # Icons
 
 To get list of icons go to [React Icons](https://react-icons.github.io/react-icons/)
+
+# Select
+
+To create selects we are using [React-select](https://react-select.com/home)

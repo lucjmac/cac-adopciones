@@ -4,10 +4,10 @@
   border: none;
   color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
   padding: 10px 20px;
 }
 
-button:hover {
-  background-color: #99c2a0;
+.button:hover {
+  background-color: #457b668e;
 }

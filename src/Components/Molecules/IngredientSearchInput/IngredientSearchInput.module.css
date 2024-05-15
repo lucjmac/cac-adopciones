@@ -1,0 +1,19 @@
+.searchIngredientForm .icon {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  font-size: 30px;
+}
+
+.searchIngredientForm .searchInput {
+  background: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding-left: 40px;
+  color: var(--colorWhite);
+}
+
+.searchIngredientForm .searchInput::placeholder {
+  color: var(--colorWhite);
+}

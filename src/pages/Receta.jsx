@@ -3,16 +3,19 @@ import { useParams } from "react-router-dom";
 import getResults from "../utils/getSearchResults";
 import RecipeCard from "../Components/Molecules/RecipeCard/RecipeCard";
 import RecipeWrapper from "../Components/Content/RecipeWrapper/RecipeWrapper";
+import Spinner from "../Components/Spinner/Spinner";
 
 const Receta = () => {
   const { recetaId } = useParams();
   const [result, setResults] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getResults(`lookup.php?i=${recetaId}`).then((results) =>
-      setResults(results.meals[0])
-    );
+    getResults(`lookup.php?i=${recetaId}`).then((results) => {
+      setResults(results.meals[0]);
+      setLoading(false);
+    });
   }, [recetaId]);
 
   useEffect(() => {
@@ -39,9 +42,18 @@ const Receta = () => {
 
   return (
     <section className="recipe-page">
-      <RecipeCard details={result} />
-
-      <RecipeWrapper ingredients={ingredients} result={result} />
+      {loading ? (
+        <div
+          style={{ padding: "5rem", display: "flex", justifyContent: "center" }}
+        >
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          <RecipeCard details={result} />
+          <RecipeWrapper ingredients={ingredients} result={result} />
+        </>
+      )}
     </section>
   );
 };

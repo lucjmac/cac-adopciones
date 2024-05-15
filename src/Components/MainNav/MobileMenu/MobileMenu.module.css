@@ -1,0 +1,155 @@
+.menuToggle {
+  -webkit-user-select: none;
+  display: none;
+  position: relative;
+  user-select: none;
+  z-index: 1;
+}
+
+.menuToggle a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menuToggle a:hover {
+  color: tomato;
+}
+
+.menuToggle input {
+  -webkit-touch-callout: none;
+  cursor: pointer;
+  display: block;
+  height: 32px;
+  left: -5px;
+  opacity: 0;
+  position: absolute;
+  top: -7px;
+  width: 40px;
+  z-index: 2;
+}
+
+.menuToggle .span {
+  background: #457b66;
+  border-radius: 3px;
+  display: block;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  transform-origin: 4px 0px;
+  width: 33px;
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+.menuToggle .span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.menuToggle .span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ .span {
+  background: white;
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+}
+
+.menuToggle input:checked ~ .span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ .span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  -webkit-font-smoothing: antialiased;
+  background: white;
+  list-style-type: none;
+  margin: -65px 0 0 50px;
+  padding: 0;
+  position: absolute;
+  transform-origin: 0% 0%;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  width: 95vw;
+}
+
+.menu .li {
+  display: flex;
+  font-size: 22px;
+  padding: 2rem 4rem;
+}
+
+.menu .li:not(:last-child) {
+  border-bottom: solid 1px #457b66;
+}
+
+.menu .li:first-child {
+  background: #457b66;
+}
+
+.menuToggle input:checked ~ ul {
+  transform: translate(-100%, 0);
+}
+
+.mobileContainer {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.mobileContainer.small {
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.mobileMenuWrapper {
+  align-self: center;
+  display: flex;
+  grid-column-end: 3;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: end;
+}
+
+.mobileBranding {
+  align-self: center;
+  display: flex;
+  grid-column-end: 2;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self: start;
+  padding: 4px;
+}
+
+.mobileSearch {
+  align-self: center;
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.mobileLinks {
+  background: none;
+  color: #333333;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 900px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .mobileContainer {
+    display: grid;
+  }
+}

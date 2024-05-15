@@ -3,5 +3,6 @@
   background-color: darkseagreen;
   display: flex;
   justify-content: space-between;
+  min-height: 135px;
   padding: 16px;
 }
