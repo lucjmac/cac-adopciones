@@ -26,7 +26,7 @@
   padding: 6px 15px 2px;
   border-radius: 5px;
   flex: 1;
-  margin-left: 130px;
+  margin-left: 100px;
   margin-right: 40px;
 }
 .contacto_form {
@@ -76,4 +76,44 @@
 
 .button:hover {
   background-color: #99c2a0;
+}
+
+@media (max-width: 790px) {
+    .contacto_container {
+        flex-direction: column; 
+        align-items: stretch; 
+        padding: 16px;
+    }
+    .contacto_section,
+    .image_recipe {
+        margin-left: 10px;
+        margin-top: 20px; 
+    }
+
+
+    .image_recipe img{
+
+      display: none;
+    }
+
+     
+}
+
+@media (max-width: 480px) {
+  .contacto_section {
+        margin-left: 20px; 
+        margin-right: 20px; 
+    }
+
+   
+  .form_group {
+        margin-right: 0; 
+    }
+
+    .contacto_form {
+        margin: 0 auto; 
+        padding: 0 20px; 
+    }
+
+     
 }
