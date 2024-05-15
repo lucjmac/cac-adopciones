@@ -73,11 +73,30 @@ const App = () => {
               path="/worldrecipes/recetas/:id"
               element={<DetalleReceta />}
             ></Route>
-            <Route path="/worldrecipes/error404" element={<Error404 />}></Route>
+
             <Route
-              path="/worldrecipes/worldrecipes/"
-              element={<Navigate to="/" />}
+              path="/contacto"
+              element={<Navigate to="/worldrecipes/contacto" />}
             ></Route>
+            <Route
+              path="/recetas"
+              element={<Navigate to="/worldrecipes/recetas" />}
+            ></Route>
+            <Route
+              path="/search"
+              element={<Navigate to="/worldrecipes/search" />}
+            ></Route>
+            <Route
+              path="/receta/:recetaId"
+              element={<Navigate to="/worldrecipes/receta/:recetaId" />}
+            ></Route>
+            <Route
+              path="/recetas/:id"
+              element={<Navigate to="/worldrecipes/recetas/:id" />}
+            ></Route>
+
+            <Route path="/worldrecipes/error404" element={<Error404 />}></Route>
+            <Route path="/" element={<Navigate to="/worldrecipes" />}></Route>
             <Route
               path="/worldrecipes/*"
               element={<Navigate to="/worldrecipes/error404" />}
